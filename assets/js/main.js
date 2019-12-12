@@ -1,0 +1,58 @@
+/*
+# SimpleUI By Muh Kanda Wibawa Putra (HelloPutra)
+# Github : https://github.com/HelloPutra
+# This Template Is FREE!
+# Released under the MIT license
+# http://opensource.org/licenses/MIT
+# For Information : surel.muhkanda@gmail.com
+*/
+var $duration = 1000;
+$(document).ready(function(){
+	// - ACCOUNT DROPDOWN
+	$('.ui.admindropdown').dropdown({
+		transition: 'swing down',
+		on : 'click',
+		duration  : $duration			
+	});
+
+	$('.ui.sidebardropdown').dropdown({
+		transition: 'swing left',
+		on : 'click',
+		duration  : $duration
+	});
+	$('.ui.moredropdown').dropdown({
+		transition: 'swing down',
+		duration  : $duration
+	});
+
+	// - SHOW & HIDE SIDEBAR
+    $("#showmobiletabletsidebar").click(function(){
+        $('.mobiletabletsidebar.animate .menu').transition({
+		  	animation : 'swing right',
+		    duration  : $duration
+		  })
+		;
+		$('#mobiletabletsidebar').removeClass('hidden');
+    });
+    $("#hidemobiletabletsidebar").click(function(){
+        $('.mobiletabletsidebar.animate .menu')
+		  .transition({
+		  	animation : 'fade',
+		    duration  : $duration
+		  });
+    });
+    // - DATA TABLES
+    $(document).ready(function() {
+	    $('#example').DataTable();
+	} );
+	var table = $('#example').DataTable( {
+        lengthChange: false,
+        buttons: [ 'copy', 'excel', 'pdf' ]
+    } );
+    table.buttons().container()
+        .appendTo( $('div.eight.column:eq(0)', table.table().container())
+    );
+    $('.ui.accordion').accordion({
+      exclusive: false
+    });
+});
