@@ -20,6 +20,9 @@
 					                <div class="simple field">
 					                    <a class="item" href="example_message.php"><i class="envelope outline icon"></i> Contoh Pesan</a>
 					                </div>
+					                <div class="simple field">
+					                    <a class="item" href="example_blank.php"><i class="file outline icon"></i> Halaman Blank</a>
+					                </div>
 						        </div>
 							</div>		
 							<a class="item" href="login.php"><i class="sign out alternate icon"></i> Logout</a>
