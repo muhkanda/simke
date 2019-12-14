@@ -8,6 +8,7 @@
 								<img src="assets/images/user.png" id="sidebar-image">
 							</div>
 							<a class="item" href="index.php"><i class="chart line icon"></i> Dashboard</a>
+							<a class="item" href="kelola_pengguna.php"><i class="users cog icon"></i> Pengelolaan Pengguna</a>
 							<a class="item" href="example_view.php"><i class="database icon"></i> Contoh Data</a>
 							<div class="ui horizontal accordion item">
 						        <span class="title item">
@@ -25,7 +26,7 @@
 					                </div>
 						        </div>
 							</div>		
-							<a class="item" href="login.php"><i class="sign out alternate icon"></i> Logout</a>
+							<a class="item" href="functions/logout.php"><i class="sign out alternate icon"></i> Logout</a>
 							<a class="item"></a>
 						</div>
 					</div>
@@ -48,8 +49,9 @@
 								</table>
 							</div>
 							<a class="item" href="index.php"><i class="chart line icon"></i> Dashboard</a>
+							<a class="item" href="kelola_pengguna.php"><i class="users cog icon"></i> Pengelolaan Pengguna</a>
 							<a class="item" href="example_view.php"><i class="database icon"></i> Contoh Data</a>	
-							<a class="item" href="login.php"><i class="sign out alternate icon"></i> Logout</a>
+							<a class="item" href="functions/logout.php"><i class="sign out alternate icon"></i> Logout</a>
 							<div class="item" id="hidemobiletabletsidebar">
 								<button class="fluid ui button">
 									Close

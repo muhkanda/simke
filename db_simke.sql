@@ -27,12 +27,14 @@ CREATE TABLE `tb_user` (
   `password` varchar(255) DEFAULT NULL,
   `role` char(1) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_user` */
 
 insert  into `tb_user`(`id_user`,`nama`,`username`,`password`,`role`) values 
-(1,'SIMKE Admin','admin','21232f297a57a5a743894a0e4a801fc3','1');
+(1,'SIMKE Admin','admin','21232f297a57a5a743894a0e4a801fc3','1'),
+(2,'SIMKE Keuangan','keuangan','a4151d4b2856ec63368a7c784b1f0a6e','2'),
+(3,'SIMKE Barang','barang','177cbf2b2fda8daf8688bd68a5ea6e14','3');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -33,7 +33,7 @@
 <?php } ?>
     <div class="ui centered grid">
         <div class="four wide computer column" style="margin-top: 10%;">
-            <form action="functions/logincheck.php" method="POST">
+            <form action="functions/login_check.php" method="POST">
                 <div class="ui segment">
                     <img class="ui centered medium image" src="assets/images/logo-full.png" alt=""><br>
                     <div class="ui form">
