@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    // NOT LOGGED IN
+    if($_SESSION['login']!="yes"){
+        header("location:login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,14 +43,14 @@
                             </div>
                             <div class="ui top pointing dropdown admindropdown link item right">
                                 <img class="imgrad" src="assets/images/user.png" alt="">
-                                <span class="clear navtext"><strong>ACCOUNT</strong></span>
+                                <span class="clear navtext"><strong style="text-transform: uppercase;"><?= $_SESSION['nama']; ?></strong></span>
                                 <i class="dropdown icon navtext"></i>
                                 <div class="menu">
                                     <div class="item">
                                         <a href="#"><i class="settings icon"></i>Account Setting</a>
                                     </div>
                                     <div class="item">
-                                        <a href="login.php"><i class="sign out alternate icon"></i>Logout</a>
+                                        <a href="functions/logout.php"><i class="sign out alternate icon"></i>Logout</a>
                                     </div>
                                 </div>
                             </div>

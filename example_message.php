@@ -80,7 +80,8 @@
             title: 'Gagal!',
             message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
             showProgress: 'bottom',
-            classProgress: 'red'
+            classProgress: 'red',
+            displayTime: 'auto'
         });
     });
 </script>

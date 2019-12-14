@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    // LOGGED IN
+    if(isset($_SESSION['login'])!=""){
+        header("location:index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +20,20 @@
     <script src="assets/vendors/fomantic-ui/semantic.min.js"></script>
 </head>
 <body>
+<?php if (isset($_GET['failed'])) { ?>
+    <script>
+        $('body')
+          .toast({
+            title: 'Login Gagal!',
+            message: 'Username / Password Salah!',
+            class: 'red',
+            showProgress: 'top'
+        });
+    </script>
+<?php } ?>
     <div class="ui centered grid">
         <div class="four wide computer column" style="margin-top: 10%;">
-            <form action="" method="POST">
+            <form action="functions/logincheck.php" method="POST">
                 <div class="ui segment">
                     <img class="ui centered medium image" src="assets/images/logo-full.png" alt=""><br>
                     <div class="ui form">
