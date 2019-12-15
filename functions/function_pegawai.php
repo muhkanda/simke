@@ -1,6 +1,7 @@
 <?php
 
 	require_once 'database.php';
+	include_once 'helper.php';
 
 	function getData() {
 		global $conn;
@@ -54,9 +55,9 @@
 		session_start();
 		unset ($_SESSION["message"]);
 		if ($add) {			
-			$_SESSION['message'] = '<script>$("body").toast({title:"Proses Tambah Berhasil!",message:"Data Berhasil Ditambahkan!",showProgress:"bottom",classProgress:"green"});</script>';
+			$_SESSION['message'] = $added;
 		}else {
-			$_SESSION['message'] = '<script>$("body").toast({title:"Proses Tambah Gagal!",message:"Data Gagal Ditambahkan!",showProgress:"bottom",classProgress:"red"});</script>';
+			$_SESSION['message'] = $failed;
 		}
 		header("location:../kelola_pegawai.php");
 	}
@@ -66,9 +67,9 @@
 		$deleted = deleteData($id);
 		unset ($_SESSION["message"]);
 		if ($deleted) {			
-			$_SESSION['message'] = '<script>$("body").toast({title:"Proses Hapus Berhasil!",message:"Data Berhasil Dihapus!",showProgress:"bottom",classProgress:"green"});</script>';
+			$_SESSION['message'] = $deleted;
 		}else {
-			$_SESSION['message'] = '<script>$("body").toast({title:"Proses Hapus Gagal!",message:"Data Gagal Dihapus!",showProgress:"bottom",classProgress:"red"});</script>';
+			$_SESSION['message'] = $failed;
 		}
 		header("location:../kelola_pegawai.php");
 	}
@@ -84,9 +85,9 @@
 		session_start();
 		unset ($_SESSION["message"]);
 		if ($update) {			
-			$_SESSION['message'] = '<script>$("body").toast({title:"Proses Edit Berhasil!",message:"Data Berhasil Diubah!",showProgress:"bottom",classProgress:"green"});</script>';
+			$_SESSION['message'] = $edited;
 		}else {
-			$_SESSION['message'] = '<script>$("body").toast({title:"Proses Edit Gagal!",message:"Data Gagal Diubah!",showProgress:"bottom",classProgress:"red"});</script>';
+			$_SESSION['message'] = $failed;
 		}
 		header("location:../kelola_pegawai.php");
 	}
