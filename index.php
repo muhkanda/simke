@@ -2,17 +2,6 @@
     include_once 'layout/header.php';
 	include_once 'layout/sidebar.php';
 ?>
-<?php if (isset($_GET['success'])) { ?>
-    <script>
-        $('body')
-          .toast({
-            title: 'Login Berhasil!',
-            message: 'Proses Login Berhasil!',
-            class: 'green',
-            showProgress: 'top'
-        });
-    </script>
-<?php } ?>	
 		<!-- BEGIN CONTEN -->
 		<div class="right floated thirteen wide computer sixteen wide phone column" id="content">
 			<div class="ui container grid">
@@ -142,4 +131,18 @@
 		<script src="assets/vendors/chart.js/Chart.example.js"></script>
 <?php
 	include_once 'layout/footer.php';
+	if (isset($_SESSION['message']) == 'logfail') { 
+	    echo "
+	        <script>
+	            $('body')
+                  .toast({
+                    title: 'Login Berhasil!',
+                    message: 'Proses Login Berhasil!',
+                    class: 'green',
+                    showProgress: 'top'
+                });
+	        </script>
+	    ";
+	}
+	unset($_SESSION['message']);
 ?>	

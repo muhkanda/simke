@@ -15,7 +15,7 @@
 								<!-- BEGIN DATATABLE -->
 								<div class="ui stacked segment">
 									<div class="">
-										<a href="#" class="ui blue right floated button">
+										<a href="add_pengguna.php" class="ui blue right floated button">
 											<i class="plus icon"></i>TAMBAH DATA
 										</a>
 										<div class="ui blue ribbon icon label">TABEL PENGELOLAAN PENGGUNA</div>
@@ -63,4 +63,34 @@
 		<!-- END CONTENT -->
 <?php
 	include_once 'layout/footer.php';
+?>
+<?php 
+
+if (isset($_SESSION['message']) == 'added') { 
+    echo "
+ 		<script>
+ 		    $('body')
+ 		      .toast({
+ 		        title: 'Proses Tambah Berhasil!',
+ 		        message: 'Data Berhasil Ditambahkan!',
+ 		        showProgress: 'bottom',
+ 		        classProgress: 'green'
+ 		    });
+ 		</script>
+    ";
+}elseif (isset($_SESSION['message']) == 'addfail') { 
+    echo "
+ 		<script>
+ 		    $('body')
+ 		      .toast({
+ 		        title: 'Proses Tambah Berhasil!',
+ 		        message: 'Data Berhasil Ditambahkan!',
+ 		        showProgress: 'bottom',
+ 		        classProgress: 'green'
+ 		    });
+ 		</script>
+    ";
+}
+
+unset($_SESSION['message']);
 ?>

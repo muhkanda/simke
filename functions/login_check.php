@@ -12,8 +12,10 @@
 			$_SESSION['nama'] = $key['nama'];
 			// $_SESSION['role'] = $key['role'];
 		}
-		header("location:../index.php?success");
+		$_SESSION['message'] = 'logged';
+		header("location:../index.php");
 	}else{
-		header("location:../login.php?failed");
+		$_SESSION['message'] = 'logfail';
+		header("location:../login.php");
 	}
 ?>

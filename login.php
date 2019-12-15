@@ -20,17 +20,6 @@
     <script src="assets/vendors/fomantic-ui/semantic.min.js"></script>
 </head>
 <body>
-<?php if (isset($_GET['failed'])) { ?>
-    <script>
-        $('body')
-          .toast({
-            title: 'Login Gagal!',
-            message: 'Username / Password Salah!',
-            class: 'red',
-            showProgress: 'top'
-        });
-    </script>
-<?php } ?>
     <div class="ui centered grid">
         <div class="four wide computer column" style="margin-top: 10%;">
             <form action="functions/login_check.php" method="POST">
@@ -56,4 +45,20 @@
         </div>
     </div>
 </body>
+<?php 
+    if (isset($_SESSION['message']) == 'logfail') { 
+        echo "
+            <script>
+                $('body')
+                  .toast({
+                    title: 'Login Gagal!',
+                    message: 'Username / Password Salah!',
+                    class: 'red',
+                    showProgress: 'top'
+                });
+            </script>
+        ";
+    }
+    unset($_SESSION['message']); 
+?>
 </html>
