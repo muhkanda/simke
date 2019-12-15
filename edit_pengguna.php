@@ -1,4 +1,5 @@
 <?php
+	require 'functions/function_pengguna.php';
 	include_once 'layout/header.php';
 	include_once 'layout/sidebar.php';
 ?>		
@@ -14,14 +15,21 @@
 								<form action="functions/function_pengguna.php" method="POST">
 					                <div class="ui stacked segment">
 					                    <div class="ui form">
+					                    	<?php
+					                    		$id 	= $_GET['id'];
+					                    		$get 	= showData($id);
+					                    	?>
+					                    	<?php foreach ($get as $data) { ?>
 					                        <div class="two fields">
 					                            <div class="field">
 					                                <label>NAMA</label>
-					                                <input type="text" name="nama" placeholder="">
+					                                <input type="text" name="nama" placeholder="" value="<?= $data['nama'] ?>">
 					                            </div>
 					                            <div class="field">
 					                                <label>ROLE</label>
 						                            <select name="role" id="" class="ui dropdown">
+						                            	<?php $role = ($data['role'] == 1) ? 'ADMIN' : (($data['role'] == 2) ? 'KEUANGAN' : (($data['role'] == 3) ? 'BARANG' : 'Who Are You?')) ?>
+						                            	<option value="<?= $data['role'] ?>" default><?= $role ?></option>
 						                            	<option value="1">ADMIN</option>
 						                            	<option value="2">KEUANGAN</option>
 						                            	<option value="3">BARANG</option>
@@ -31,16 +39,18 @@
 					                        <div class="two fields">
 					                            <div class="field">
 					                                <label>USERNAME</label>
-					                                <input type="text" name="username" placeholder="">
+					                                <input type="text" name="username" placeholder="" value="<?= $data['username'] ?>">
 					                            </div>
 					                            <div class="field">
 					                                <label>PASSWORD</label>
-					                                <input type="password" name="password" placeholder="">
+					                                <input type="password" name="password" placeholder="" value="" required="">
 					                            </div>
-					                        </div> 
+					                        </div>
+					                        <input type="hidden" name="id" value="<?= $data['id_user'] ?>"> 
+					                        <?php } ?>
 					                    </div>
 					                    <br>
-					                    <input type="hidden" name="add">
+					                    <input type="hidden" name="edit">
 					                    <button class="ui blue button">
 					                        <i class="save icon"></i>
 					                        SIMPAN

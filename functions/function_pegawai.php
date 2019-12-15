@@ -54,9 +54,9 @@
 		session_start();
 		unset ($_SESSION["message"]);
 		if ($add) {			
-			$_SESSION['message'] = 'succesed';
+			$_SESSION['message'] = '<script>$("body").toast({title:"Proses Tambah Berhasil!",message:"Data Berhasil Ditambahkan!",showProgress:"bottom",classProgress:"green"});</script>';
 		}else {
-			$_SESSION['message'] = 'failed';
+			$_SESSION['message'] = '<script>$("body").toast({title:"Proses Tambah Gagal!",message:"Data Gagal Ditambahkan!",showProgress:"bottom",classProgress:"red"});</script>';
 		}
 		header("location:../kelola_pegawai.php");
 	}
@@ -65,10 +65,10 @@
 		$id = $_GET['hapus'];
 		$deleted = deleteData($id);
 		unset ($_SESSION["message"]);
-		if ($add) {			
-			$_SESSION['message'] = 'succesed';
+		if ($deleted) {			
+			$_SESSION['message'] = '<script>$("body").toast({title:"Proses Hapus Berhasil!",message:"Data Berhasil Dihapus!",showProgress:"bottom",classProgress:"green"});</script>';
 		}else {
-			$_SESSION['message'] = 'failed';
+			$_SESSION['message'] = '<script>$("body").toast({title:"Proses Hapus Gagal!",message:"Data Gagal Dihapus!",showProgress:"bottom",classProgress:"red"});</script>';
 		}
 		header("location:../kelola_pegawai.php");
 	}
@@ -84,9 +84,9 @@
 		session_start();
 		unset ($_SESSION["message"]);
 		if ($update) {			
-			$_SESSION['message'] = 'succesed';
+			$_SESSION['message'] = '<script>$("body").toast({title:"Proses Edit Berhasil!",message:"Data Berhasil Diubah!",showProgress:"bottom",classProgress:"green"});</script>';
 		}else {
-			$_SESSION['message'] = 'failed';
+			$_SESSION['message'] = '<script>$("body").toast({title:"Proses Edit Gagal!",message:"Data Gagal Diubah!",showProgress:"bottom",classProgress:"red"});</script>';
 		}
 		header("location:../kelola_pegawai.php");
 	}

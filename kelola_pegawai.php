@@ -66,34 +66,8 @@
 
 <?php
 	include_once 'layout/footer.php';
-?>
-<?php 
-
-if (isset($_SESSION['message']) == 'succesed') { 
-    echo "
- 		<script>
- 		    $('body')
- 		      .toast({
- 		        title: 'Proses Berhasil!',
- 		        message: 'Data Berhasil Diproses!',
- 		        showProgress: 'bottom',
- 		        classProgress: 'green'
- 		    });
- 		</script>
-    ";
-}elseif (isset($_SESSION['message']) == 'failed') { 
-    echo "
- 		<script>
- 		    $('body')
- 		      .toast({
- 		        title: 'Proses Gagal!',
- 		        message: 'Data Gagal Diproses!',
- 		        showProgress: 'bottom',
- 		        classProgress: 'red'
- 		    });
- 		</script>
-    ";
-}
-
-unset($_SESSION['message']);
+	if (isset($_SESSION['message'])) {
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	}
 ?>
