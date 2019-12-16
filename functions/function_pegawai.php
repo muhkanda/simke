@@ -1,6 +1,7 @@
 <?php
 
 	require_once 'database.php';
+	include_once 'helper.php';
 
 	function getData() {
 		global $conn;
@@ -54,9 +55,9 @@
 		session_start();
 		unset ($_SESSION["message"]);
 		if ($add) {			
-			$_SESSION['message'] = 'succesed';
+			$_SESSION['message'] = $added;
 		}else {
-			$_SESSION['message'] = 'failed';
+			$_SESSION['message'] = $failed;
 		}
 		header("location:../kelola_pegawai.php");
 	}
@@ -65,10 +66,10 @@
 		$id = $_GET['hapus'];
 		$deleted = deleteData($id);
 		unset ($_SESSION["message"]);
-		if ($add) {			
-			$_SESSION['message'] = 'succesed';
+		if ($deleted) {			
+			$_SESSION['message'] = $deleted;
 		}else {
-			$_SESSION['message'] = 'failed';
+			$_SESSION['message'] = $failed;
 		}
 		header("location:../kelola_pegawai.php");
 	}
@@ -84,9 +85,9 @@
 		session_start();
 		unset ($_SESSION["message"]);
 		if ($update) {			
-			$_SESSION['message'] = 'succesed';
+			$_SESSION['message'] = $edited;
 		}else {
-			$_SESSION['message'] = 'failed';
+			$_SESSION['message'] = $failed;
 		}
 		header("location:../kelola_pegawai.php");
 	}

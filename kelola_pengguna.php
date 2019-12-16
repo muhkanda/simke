@@ -43,9 +43,9 @@
 									    	    <td><?= $role ?></td>
 									    	    <td style="text-align: center;">
 									    	    	<div class="ui buttons">
-									    	    	  <a href="#" class="ui green button"><i class="pen icon"></i></a>
+									    	    	  <a href="<?= 'edit_pengguna.php?id='.$data['id_user']; ?>" class="ui green button"><i class="pen icon"></i></a>
 									    	    	  <div class="or" data-text="/"></div>
-									    	    	  <a href="#" class="ui red button"><i class="trash alternate icon"></i></a>
+									    	    	  <a href="<?= 'functions/function_pengguna.php?hapus='.$data['id_user']; ?>" class="ui red button"><i class="trash alternate icon"></i></a>
 									    	    	</div>
 									    	    </td>
 									    	</tr>
@@ -63,34 +63,8 @@
 		<!-- END CONTENT -->
 <?php
 	include_once 'layout/footer.php';
-?>
-<?php 
-
-if (isset($_SESSION['message']) == 'added') { 
-    echo "
- 		<script>
- 		    $('body')
- 		      .toast({
- 		        title: 'Proses Tambah Berhasil!',
- 		        message: 'Data Berhasil Ditambahkan!',
- 		        showProgress: 'bottom',
- 		        classProgress: 'green'
- 		    });
- 		</script>
-    ";
-}elseif (isset($_SESSION['message']) == 'addfail') { 
-    echo "
- 		<script>
- 		    $('body')
- 		      .toast({
- 		        title: 'Proses Tambah Berhasil!',
- 		        message: 'Data Berhasil Ditambahkan!',
- 		        showProgress: 'bottom',
- 		        classProgress: 'green'
- 		    });
- 		</script>
-    ";
-}
-
-unset($_SESSION['message']);
+	if (isset($_SESSION['message'])) {
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	}
 ?>

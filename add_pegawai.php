@@ -1,10 +1,6 @@
 <?php
 	include_once 'layout/header.php';
 	include_once 'layout/sidebar.php';
-
-	if (isset($_POST['submit'])) {
-		echo "SUBMITED";
-	}
 ?>		
 		<!-- BEGIN CONTEN -->
 		<div class="right floated thirteen wide computer sixteen wide phone column" id="content">
