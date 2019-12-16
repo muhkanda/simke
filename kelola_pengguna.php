@@ -35,7 +35,7 @@
 									    <?php $all = getData(); $no = 1; ?>
 									    <?php foreach ($all as $data) { ?>
 									    <!-- IF ROLE -->
-									    <?php $role = ($data['role'] == 1) ? 'Admin' : (($data['role'] == 2) ? 'Keuangan' : (($data['role'] == 3) ? 'Barang' : 'Who Are You?')) ?>
+									    <?php $role = ($data['role'] == 1) ? 'ADMIN' : (($data['role'] == 2) ? 'AKUNTAN' : (($data['role'] == 3) ? 'DIREKTUR' : 'MANAGER')) ?>
 									    	<tr>
 									    	    <td><?= $no++ ?></td>
 									    	    <td><?= $data['nama'] ?></td>

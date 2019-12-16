@@ -28,11 +28,12 @@
 					                            <div class="field">
 					                                <label>ROLE</label>
 						                            <select name="role" id="" class="ui dropdown">
-						                            	<?php $role = ($data['role'] == 1) ? 'ADMIN' : (($data['role'] == 2) ? 'KEUANGAN' : (($data['role'] == 3) ? 'BARANG' : 'Who Are You?')) ?>
+						                            	<?php $role = ($data['role'] == 1) ? 'ADMIN' : (($data['role'] == 2) ? 'AKUNTAN' : (($data['role'] == 3) ? 'DIREKTUR' : 'MANAGER')) ?>
 						                            	<option value="<?= $data['role'] ?>" default><?= $role ?></option>
 						                            	<option value="1">ADMIN</option>
-						                            	<option value="2">KEUANGAN</option>
-						                            	<option value="3">BARANG</option>
+						                            	<option value="2">AKUNTAN</option>
+						                            	<option value="3">DIREKTUR</option>
+						                            	<option value="4">MANAGER</option>
 						                            </select>
 					                            </div>
 					                        </div>

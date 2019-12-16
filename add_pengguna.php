@@ -23,8 +23,9 @@
 					                                <label>ROLE</label>
 						                            <select name="role" id="" class="ui dropdown">
 						                            	<option value="1">ADMIN</option>
-						                            	<option value="2">KEUANGAN</option>
-						                            	<option value="3">BARANG</option>
+						                            	<option value="2">AKUNTAN</option>
+						                            	<option value="3">DIREKTUR</option>
+						                            	<option value="4">MANAGER</option>
 						                            </select>
 					                            </div>
 					                        </div>
