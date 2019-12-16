@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
     <meta name="robots" content="all,follow">
-    <title>SIM KEUANGAN &mdash; PT JAKATIJAYA MEGAH</title>
+    <title>LOGIN &mdash; SIM KEUANGAN PT JAKATIJAYA MEGAH</title>
     <link rel="icon" href="assets/images/logo.png" sizes="32x32">
     <link rel="stylesheet" href="assets/vendors/fomantic-ui/semantic.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
