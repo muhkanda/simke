@@ -47,9 +47,6 @@
                                 <i class="dropdown icon navtext"></i>
                                 <div class="menu">
                                     <div class="item">
-                                        <a href="#"><i class="settings icon"></i>Account Setting</a>
-                                    </div>
-                                    <div class="item">
                                         <a href="functions/logout.php"><i class="sign out alternate icon"></i>Logout</a>
                                     </div>
                                 </div>

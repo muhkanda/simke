@@ -1,4 +1,5 @@
 <?php
+	require 'functions/function_pegawai.php';
 	include_once 'layout/header.php';
 	include_once 'layout/sidebar.php';
 ?>		
@@ -22,8 +23,8 @@
 					                            <div class="field">
 					                                <label>Status Pegawai</label>
 						                            <select name="status_pegawai" id="" class="ui dropdown">
-						                            	<option value="lama">PEGAWAI LAMA</option>
-						                            	<option value="baru">PEGAWAI BARU</option>
+						                            	<option value="TETAP">TETAP</option>
+						                            	<option value="TIDAK TETAP">TIDAK TETAP</option>
 						                            </select>
 					                            </div>
 					                        </div>
@@ -41,6 +42,15 @@
 					                            <div class="field">
 					                                <label>ALAMAT</label>
 					                                <textarea name="alamat"></textarea>
+					                            </div>
+					                            <div class="field">
+					                                <label>Jabatan Pegawai</label>
+						                            <select name="id_jabatan" id="id_jabatan" class="ui dropdown">
+						                            	<?php $get_jabatan = getJabatan();
+						                            		foreach ($get_jabatan as $j) { ?>
+								                            	<option value="<?= $j['id_jabatan'] ?>"><?= $j['nama_jabatan'] ?> (<?= $j['keterangan'] ?>)</option>
+								                        <?php } ?>
+						                            </select>
 					                            </div>
 					                        </div>
 					                    </div>

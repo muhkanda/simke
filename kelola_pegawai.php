@@ -29,6 +29,7 @@
 									            <th>Nama Lengkap</th>
 									            <th>No HP</th>
 									            <th>Alamat</th>
+                                        		<th>Jabatan</th>
 									            <th>Status</th>
 									            <th style="text-align: center;">Action</th>
 									        </tr>
@@ -42,6 +43,7 @@
 								    	    <td><?= $data['nama_lengkap'] ?></td>
 								    	    <td><?= $data['no_hp'] ?></td>
 								    	    <td><?= $data['alamat'] ?></td>
+                                            <td><?= $data['nama_jabatan'] ?></td>
 								    	    <td><?= $data['status_pegawai'] ?></td>
 								    	    <td style="text-align: center;">
 								    	    	<div class="ui buttons">

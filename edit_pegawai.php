@@ -32,8 +32,8 @@
 					                            <div class="field">
 					                                <label>Status Pegawai</label>
 						                            <select name="status_pegawai" id="" class="ui dropdown">
-						                            	<option value="lama" <?=$data['status_pegawai'] == 'lama' ? 'selected' : '';?>>PEGAWAI LAMA</option>
-						                            	<option value="baru" <?=$data['status_pegawai'] == 'baru' ? 'selected' : '';?>>PEGAWAI BARU</option>
+						                            	<option value="TETAP" <?=$data['status_pegawai'] == 'TETAP' ? 'selected' : '';?>>TETAP</option>
+						                            	<option value="TIDAK TETAP" <?=$data['status_pegawai'] == 'TIDAK TETAP' ? 'selected' : '';?>>TIDAK TETAP</option>
 						                            </select>
 					                            </div>
 					                        </div>
@@ -51,6 +51,15 @@
 					                            <div class="field">
 					                                <label>ALAMAT</label>
 					                                <textarea name="alamat"> <?= $data['alamat'] ?></textarea>
+					                            </div>
+					                            <div class="field">
+					                                <label>Jabatan Pegawai</label>
+						                            <select name="id_jabatan" id="id_jabatan" class="ui dropdown">
+						                            	<?php $get_jabatan = getJabatan();
+						                            		foreach ($get_jabatan as $j) { ?>
+								                            	<option value="<?= $j['id_jabatan'] ?>" <?=$data['id_jabatan'] == $j['id_jabatan'] ? 'selected' : '';?> ><?= $j['nama_jabatan'] ?> (<?= $j['keterangan'] ?>)</option>
+								                        <?php } ?>
+						                            </select>
 					                            </div>
 					                        </div>
 					                    </div>

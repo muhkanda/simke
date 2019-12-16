@@ -9,9 +9,10 @@
 							</div>
 							<a class="item" href="index.php"><i class="chart line icon"></i> Dashboard</a>
 							<a class="item" href="kelola_pegawai.php"><i class="users icon"></i> Pengelolaan Pegawai</a>
+                            <a class="item" href="kelola_gaji.php"><i class="money bill alternate outline icon"></i> Pengelolaan Gaji Pegawai</a>
 							<a class="item" href="kelola_pengguna.php"><i class="user cog icon"></i> Pengelolaan Pengguna</a>
 							<a class="item" href="kelola_jabatan.php"><i class="briefcase icon"></i> Pengelolaan Jabatan</a>
-							<a class="item" href="example_view.php"><i class="database icon"></i> Contoh Data</a>
+							<!-- <a class="item" href="example_view.php"><i class="database icon"></i> Contoh Data</a>
 							<div class="ui horizontal accordion item">
 						        <span class="title item">
 						            <i class="dropdown icon"></i> Contoh Element
@@ -27,7 +28,7 @@
 					                    <a class="item" href="example_blank.php"><i class="file outline icon"></i> Halaman Blank</a>
 					                </div>
 						        </div>
-							</div>		
+							</div>	 -->	
 							<a class="item" href="functions/logout.php"><i class="sign out alternate icon"></i> Logout</a>
 							<a class="item"></a>
 						</div>
