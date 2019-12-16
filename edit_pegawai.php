@@ -16,7 +16,7 @@
 			<div class="ui container grid">
 				<div class="row">
 					<div class="fifteen wide computer sixteen wide phone centered column">
-						<h2><i class="users icon"></i> FORM TAMBAH PEGAWAI</h2>
+						<h2><i class="users icon"></i> FORM EDIT PEGAWAI</h2>
 						<div class="ui divider"></div>
 						<div class="ui grid">
 							<div class="sixteen wide computer sixteen wide phone centered column">
