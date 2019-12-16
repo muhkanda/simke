@@ -1,4 +1,5 @@
 <?php
+	require_once 'functions/function_index.php';
     include_once 'layout/header.php';
 	include_once 'layout/sidebar.php';
 ?>
@@ -13,19 +14,22 @@
 							<!-- BEGIN STATISTIC ITEM -->
 							<!-- Begin Page Views -->
 							<div class="four wide computer sixteen wide phone centered column">
-								<div class="ui centered card">
+								<div class="ui centered fluid card">
 								    <div class="content">
 								        <div class="ui centered grid">
 								        	<div class="row">
 								        		<div class="six wide computer column">
 								        			<div class="ui small image simpleimage itemcolor1">
-			                                            	<i class="chart bar outline icon simpleicon"></i>
+			                                            	<i class="users icon simpleicon"></i>
 			                                        </div>
 								        		</div>
 								        		<div class="ten wide computer column">
-								        			<span><h4>Page Views</h4></span>
-								        			7120 Views
-								        			<a class="ui tiny label simplelable"><i class="eye icon"></i> Details</a>
+								        			<span><h4>Jumlah Seluruh Pegawai</h4></span>
+								        			<?php
+								        				foreach (countPegawai() as $key) {
+								        					echo $key[0].' Pegawai';
+								        				}
+								        			?>
 								        		</div>
 								        	</div>
 								        </div>
@@ -35,19 +39,22 @@
 							<!-- End Page Views -->
 							<!-- Begin Messages -->
 							<div class="four wide computer sixteen wide phone centered column">
-								<div class="ui centered card">
+								<div class="ui centered fluid card">
 								    <div class="content">
 								        <div class="ui centered grid">
 								        	<div class="row">
 								        		<div class="six wide computer column">
 								        			<div class="ui small image simpleimage itemcolor2">
-			                                            	<i class="inbox icon simpleicon"></i>
+			                                            	<i class="users icon simpleicon"></i>
 			                                        </div>
 								        		</div>
 								        		<div class="ten wide computer column">
-								        			<span><h4>Messages</h4></span>
-								        			2341 Messages
-								        			<a class="ui tiny label simplelable"><i class="eye icon"></i> Details</a>
+								        			<span><h4>Jumlah Pegawai Tetap</h4></span>
+								        			<?php
+								        				foreach (countPegawaiTetap() as $key) {
+								        					echo $key[0].' Pegawai';
+								        				}
+								        			?>
 								        		</div>
 								        	</div>
 								        </div>
@@ -57,19 +64,22 @@
 							<!-- End Messages -->
 							<!-- Begin Downloads -->
 							<div class="four wide computer sixteen wide phone centered column">
-								<div class="ui centered card">
+								<div class="ui centered fluid card">
 								    <div class="content">
 								        <div class="ui centered grid">
 								        	<div class="row">
 								        		<div class="six wide computer column">
 								        			<div class="ui small image simpleimage itemcolor3">
-			                                            	<i class="download icon simpleicon"></i>
+			                                            	<i class="users icon simpleicon"></i>
 			                                        </div>
 								        		</div>
 								        		<div class="ten wide computer column">
-								        			<span><h4>Downloads</h4></span>
-								        			5541 Downloads
-								        			<a class="ui tiny label simplelable"><i class="eye icon"></i> Details</a>
+								        			<span><h4>Jumlah Pegawai Non Tetap</h4></span>
+								        			<?php
+								        				foreach (countPegawaiTidakTetap() as $key) {
+								        					echo $key[0].' Pegawai';
+								        				}
+								        			?>
 								        		</div>
 								        	</div>
 								        </div>
@@ -79,19 +89,23 @@
 							<!-- End Downloads -->
 							<!-- Begin Users -->
 							<div class="four wide computer sixteen wide phone centered column">
-								<div class="ui centered card">
+								<div class="ui centered fluid card">
 								    <div class="content">
 								        <div class="ui centered grid">
 								        	<div class="row">
 								        		<div class="six wide computer column">
 								        			<div class="ui small image simpleimage itemcolor4">
-			                                            	<i class="user icon simpleicon"></i>
+			                                            	<i class="money icon simpleicon"></i>
 			                                        </div>
 								        		</div>
 								        		<div class="ten wide computer column">
-								        			<span><h4>Users</h4></span>
-								        			9578 Users
-								        			<a class="ui tiny label simplelable"><i class="eye icon"></i> Detailsa</a>
+								        			<span><h4>Total Seluruh Gaji</h4></span>
+								        			<?php
+								        				foreach (sumGaji() as $key) {
+								        					$formated = number_format($key[0],0,',','.');
+								        					echo 'Rp. '.$formated;
+								        				}
+								        			?>
 								        		</div>
 								        	</div>
 								        </div>
@@ -100,7 +114,7 @@
 							</div>
 							<!-- End Users -->
 							<!-- END STATISTIC ITEM -->
-							<div class="eight wide computer sixteen wide phone column justifed">
+							<!-- <div class="eight wide computer sixteen wide phone column justifed">
 								<h4>EXAMPLE TITLE</h4>
 								<div class="ui divider"></div>
 								<div class="ui tall stacked segment">
@@ -119,16 +133,16 @@
 									<div class="ui divider"></div>
 									<button id="rand-pie" class="ui blue button simplelable">Randomize Data</button>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- END CONTENT -->
-		<script src="assets/vendors/chart.js/Chart.min.js"></script>
+		<!-- <script src="assets/vendors/chart.js/Chart.min.js"></script>
 		<script src="assets/vendors/chart.js/Chart.utils.js"></script>
-		<script src="assets/vendors/chart.js/Chart.example.js"></script>
+		<script src="assets/vendors/chart.js/Chart.example.js"></script> -->
 <?php
 	include_once 'layout/footer.php';
 	if (isset($_SESSION['message']) == 'logfail') { 

@@ -18,4 +18,6 @@
 		$_SESSION['message'] = 'logfail';
 		header("location:../login.php");
 	}
+	mysqli_free_result($query);
+    mysqli_close($conn);
 ?>
