@@ -72,6 +72,14 @@
         mysqli_close($conn);
     }
 
+    function deletePotongan($id) {
+        global $conn;
+        $sql    = "DELETE FROM tb_potongan WHERE id_potongan='$id'";
+        $result = mysqli_query($conn, $sql);
+        return ($result) ? true : false;
+        mysqli_close($conn);
+    }
+
     if (isset($_POST['update_gaji'])) {
         $nik                = mysqli_real_escape_string($conn, $_POST['nik']);
         $gaji               = mysqli_real_escape_string($conn, $_POST['gaji']);
@@ -98,6 +106,19 @@
         unset ($_SESSION["message"]);
         if ($add) {
             $_SESSION['message'] = $added;
+        }else {
+            $_SESSION['message'] = $failed;
+        }
+        header("location:../detail_gaji.php?nik=".$nik);
+    }
+
+    if (isset($_GET['nik']) && isset($_GET['hapus'])) {
+        $nik = $_GET['nik'];
+        $id = $_GET['hapus'];
+        $deleted = deletePotongan($id);
+        unset ($_SESSION["message"]);
+        if ($deleted) {         
+            $_SESSION['message'] = $deleted;
         }else {
             $_SESSION['message'] = $failed;
         }
