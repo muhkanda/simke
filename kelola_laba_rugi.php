@@ -25,8 +25,8 @@
 												<div class="field">
 													<label>Periode</label>
 													<div class="ui calendar" id="standard_calendar">
-														<input type="text" name="periode" maxlength="200" placeholder="YYYY-MM-DD">
-													</div>
+					                                	<input type="text" name="periode" placeholder="YYYY-MM-DD">
+					                                </div>
 												</div>
 												<div class="field">
 													<label>Keterangan</label>
@@ -93,49 +93,18 @@
 		unset($_SESSION['message']);
 	}
 ?>
-<script>
-	var calendarOpts = {
+<script type="text/javascript">
+	$('#standard_calendar')
+	  .calendar({
+	  	monthFirst: false,
 	    type: 'date',
+	    today: 'true',
 	    formatter: {
 	        date: function (date, settings) {
-	            if (!date) return '';
-	            var day = date.getDate() + '';
-	            if (day.length < 2) {
-	                day = '0' + day;
-	            }
-	            var month = (date.getMonth() + 1) + '';
-	            if (month.length < 2) {
-	                month = '0' + month;
-	            }
-	            var year = date.getFullYear();
-	            return year + '-' + month + '-' + day;
+	          if (!date) return '';
+	               return date.toLocaleString('en-us', {year: 'numeric', month: '2-digit', day: '2-digit'}).replace(/(\d+)\/(\d+)\/(\d+)/, '$3-$1-$2');
 	        }
 	    }
-	};
-	$('#standard_calendar').calendar(calendarOpts);
-
-	// function edit(id) {
-	// 	$.ajax({
-	//           url : "<?php echo site_url('admin/karyawan/ajax_edit')?>/" + id,
-	//           type: "GET",
-	//           dataType: "JSON",
-	//           success: function(data)
-	//           {
-
-	//               $('[name="id"]').val(data.id);
-	//               $('[name="nip"]').val(data.nip);
-	//               $('[name="nama"]').val(data.nama);
-	//               $('[name="no_rek"]').val(data.no_rek);
-	//               $('[name="unit"]').val(data.unit);
-	//               $('[name="no_tlp"]').val(data.no_tlp);
-	//               $('[name="tahun_masuk"]').val(data.tahun_masuk);
-	//               $('[name="status_karyawan"]').val(data.status_karyawan);
-
-	//           },
-	//           error: function (jqXHR, textStatus, errorThrown)
-	//           {
-	//               alert('Error Pada Saat Mengambil Data');
-	//           }
-	//       });
-	// }
+	  })
+	;
 </script>
