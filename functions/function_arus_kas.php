@@ -5,7 +5,7 @@
 
 	function getPeriode() {
 		global $conn;
-		$sql 	= "SELECT * FROM tb_laba_rugi_periode ORDER BY id_periode DESC";
+		$sql 	= "SELECT * FROM tb_arus_kas_periode ORDER BY id_periode DESC";
 		$result	= mysqli_query($conn, $sql);
 		return mysqli_fetch_all($result, MYSQLI_ASSOC);
 		mysqli_free_result($result);
@@ -14,25 +14,25 @@
 
 	function getPeriodeDetail($id_periode) {
         global $conn;
-        $sql    = "SELECT * FROM tb_laba_rugi_periode WHERE id_periode='$id_periode'";
+        $sql    = "SELECT * FROM tb_arus_kas_periode WHERE id_periode='$id_periode'";
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
         mysqli_free_result($result);
         mysqli_close($conn);
     }
 
-    function getDatalr($id_periode) {
+    function getDataak($id_periode) {
         global $conn;
-        $sql    = "SELECT * FROM tb_laba_rugi_data WHERE id_periode='$id_periode'";
+        $sql    = "SELECT * FROM tb_arus_kas_data WHERE id_periode='$id_periode'";
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
         mysqli_free_result($result);
         mysqli_close($conn);
     }
 
-    function getdetaillr($id_lr_data) {
+    function getdetailak($id_ak_data) {
         global $conn;
-        $sql    = "SELECT * FROM tb_laba_rugi_data WHERE id_lr_data='$id_lr_data'";
+        $sql    = "SELECT * FROM tb_arus_kas_data WHERE id_ak_data='$id_ak_data'";
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
         mysqli_free_result($result);
@@ -41,47 +41,47 @@
 
 	function addPeriode($periode, $keterangan, $tgl_update) {
 		global $conn;
-		$sql 	= "INSERT INTO tb_laba_rugi_periode (periode, keterangan, tgl_update) VALUES ('$periode','$keterangan','$tgl_update')";
+		$sql 	= "INSERT INTO tb_arus_kas_periode (periode, keterangan, tgl_update) VALUES ('$periode','$keterangan','$tgl_update')";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
 	}
 
-	function addlabarugi($id_periode, $ket_biaya, $tgl_masuk, $saldo_awal, $bulan_berjalan, $saldo_akhir) {
+	function addaruskas($id_periode, $ket_biaya, $tgl_masuk, $saldo_awal, $bulan_berjalan, $saldo_akhir) {
 		global $conn;
-		$sql 	= "INSERT INTO tb_laba_rugi_data (id_periode, ket_biaya, tgl_masuk, saldo_awal, bulan_berjalan, saldo_akhir) VALUES ('$id_periode', '$ket_biaya', '$tgl_masuk', '$saldo_awal', '$bulan_berjalan', '$saldo_akhir')";
+		$sql 	= "INSERT INTO tb_arus_kas_data (id_periode, ket_biaya, tgl_masuk, saldo_awal, bulan_berjalan, saldo_akhir) VALUES ('$id_periode', '$ket_biaya', '$tgl_masuk', '$saldo_awal', '$bulan_berjalan', '$saldo_akhir')";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
 	}
 
-	function UpdateData($id_lr_data, $id_periode, $ket_biaya, $tgl_masuk, $saldo_awal, $bulan_berjalan, $saldo_akhir) {
+	function UpdateData($id_ak_data, $id_periode, $ket_biaya, $tgl_masuk, $saldo_awal, $bulan_berjalan, $saldo_akhir) {
 		global $conn;
-		$sql 	= "UPDATE tb_laba_rugi_data SET id_periode='$id_periode', ket_biaya='$ket_biaya', tgl_masuk='$tgl_masuk', saldo_awal='$saldo_awal', bulan_berjalan='$bulan_berjalan', saldo_akhir='$saldo_akhir' WHERE id_lr_data='$id_lr_data'";
+		$sql 	= "UPDATE tb_arus_kas_data SET id_periode='$id_periode', ket_biaya='$ket_biaya', tgl_masuk='$tgl_masuk', saldo_awal='$saldo_awal', bulan_berjalan='$bulan_berjalan', saldo_akhir='$saldo_akhir' WHERE id_ak_data='$id_ak_data'";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
 	}
 
-	function deleteData($id_lr_data) {
+	function deleteData($id_ak_data) {
 		global $conn;
-		$sql 	= "DELETE FROM tb_laba_rugi_data WHERE id_lr_data='$id_lr_data'";
+		$sql 	= "DELETE FROM tb_arus_kas_data WHERE id_ak_data='$id_ak_data'";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
 	}
 
-	if (isset($_POST['addlbr'])) {
+	if (isset($_POST['addak'])) {
         $id_periode         = mysqli_real_escape_string($conn, $_POST['id_periode']);
         $ket_biaya         	= mysqli_real_escape_string($conn, $_POST['ket_biaya']);
         $tgl_masuk         	= mysqli_real_escape_string($conn, $_POST['tgl_masuk']);
         $saldo_awal        	= mysqli_real_escape_string($conn, $_POST['saldo_awal']);
         $bulan_berjalan    	= mysqli_real_escape_string($conn, $_POST['bulan_berjalan']);
         $saldo_akhir        = mysqli_real_escape_string($conn, $_POST['saldo_akhir']);
-        $add_lbr            = addlabarugi($id_periode, $ket_biaya, $tgl_masuk, $saldo_awal, $bulan_berjalan, $saldo_akhir);
+        $add_ak            = addaruskas($id_periode, $ket_biaya, $tgl_masuk, $saldo_awal, $bulan_berjalan, $saldo_akhir);
         session_start();
         unset ($_SESSION["message"]);
-        if ($add_lbr) {
+        if ($add_ak) {
             $_SESSION['message'] = $added;
         }else {
             $_SESSION['message'] = $failed;
@@ -89,18 +89,18 @@
         header("location:../detail_periode.php?data=".$id_periode);
     }
 
-    if (isset($_POST['updatelbr'])) {
-		$id_lr_data 		= mysqli_real_escape_string($conn, $_POST['id_lr_data']);
+    if (isset($_POST['updateak'])) {
+		$id_ak_data 		= mysqli_real_escape_string($conn, $_POST['id_ak_data']);
 		$id_periode			= mysqli_real_escape_string($conn, $_POST['id_periode']);
 		$ket_biaya			= mysqli_real_escape_string($conn, $_POST['ket_biaya']);
 		$tgl_masuk			= mysqli_real_escape_string($conn, $_POST['tgl_masuk']);
 		$saldo_awal			= mysqli_real_escape_string($conn, $_POST['saldo_awal']);
 		$bulan_berjalan 	= mysqli_real_escape_string($conn, $_POST['bulan_berjalan']);
 		$saldo_akhir 		= mysqli_real_escape_string($conn, $_POST['saldo_akhir']);
-		$updatelbr 			= UpdateData($id_lr_data, $id_periode, $ket_biaya, $tgl_masuk, $saldo_awal, $bulan_berjalan, $saldo_akhir);
+		$updateak 			= UpdateData($id_ak_data, $id_periode, $ket_biaya, $tgl_masuk, $saldo_awal, $bulan_berjalan, $saldo_akhir);
 		session_start();
 		unset ($_SESSION["message"]);
-		if ($updatelbr) {			
+		if ($updateak) {			
 			$_SESSION['message'] = $edited;
 		}else {
 			$_SESSION['message'] = $failed;
@@ -121,13 +121,13 @@
 		}else {
 			$_SESSION['message'] = $failed;
 		}
-		header("location:../kelola_laba_rugi.php");
+		header("location:../kelola_arus_kas.php");
 	}
 
 	if (isset($_GET['periode']) && isset($_GET['hapus'])) {
         $id_periode = $_GET['periode'];
-        $id_lr_data = $_GET['hapus'];
-        $deleted = deleteData($id_lr_data);
+        $id_ak_data = $_GET['hapus'];
+        $deleted = deleteData($id_ak_data);
         unset ($_SESSION["message"]);
         if ($deleted) {         
             $_SESSION['message'] = $deleted;

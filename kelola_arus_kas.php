@@ -1,5 +1,5 @@
 <?php
-	require 'functions/function_laba_rugi.php';
+	require 'functions/function_arus_kas.php';
 	include_once 'layout/header.php';
 	include_once 'layout/sidebar.php';
 ?>		
@@ -8,7 +8,7 @@
 			<div class="ui container grid">
 				<div class="row">
 					<div class="fifteen wide computer sixteen wide phone centered column">
-						<h2><i class="balance scale icon"></i> PENGELOLAAN LABA RUGI</h2>
+						<h2><i class="exchange alternate icon"></i> PENGELOLAAN ARUS KAS</h2>
 						<div class="ui divider"></div>
 						<div class="ui grid">
 							<div class="sixteen wide computer sixteen wide phone centered column">
@@ -18,7 +18,7 @@
 										<div class="ui blue ribbon icon label">FORM PERIODE</div>
 										<br><br><br>
 									</div>
-									<form action="functions/function_laba_rugi.php" method="POST">
+									<form action="functions/function_arus_kas.php" method="POST">
 										<div class="ui form">
 											<div class="two fields">
 												<input type="hidden" name="id_periode" value="">
@@ -69,7 +69,7 @@
 								    	    	<div class="ui buttons">
 								    	    	  <!-- <a href="" class="ui green button"><i class="pen icon"></i></a>
 								    	    	  <div class="or" data-text="/"></div> -->
-								    	    	  <a href="detail_periode.php?data=<?php echo $data['id_periode']; ?>" class="ui blue button"><i class="list icon"></i> Data Laba Rugi</a>
+								    	    	  <a href="detail_periode.php?data=<?php echo $data['id_periode']; ?>" class="ui blue button"><i class="list icon"></i> Data Arus Kas</a>
 								    	    	</div>
 								    	    </td>
 								    	</tr>

@@ -1,5 +1,5 @@
 <?php
-	require 'functions/function_laba_rugi.php';
+	require 'functions/function_arus_kas.php';
 	include_once 'layout/header.php';
 	include_once 'layout/sidebar.php';
 
@@ -16,12 +16,12 @@
 			<div class="ui container grid">
 				<div class="row">
 					<div class="fifteen wide computer sixteen wide phone centered column">
-						<h2><i class="balance scale icon"></i> LABA RUGI PERIODE <?= $data['periode'] ?></h2>
+						<h2><i class="exchange alternate icon"></i> ARUS KAS PERIODE <?= $data['periode'] ?></h2>
 						<div class="ui divider"></div>
 						<div class="ui grid">
 							<div class="sixteen wide computer sixteen wide phone centered column">
 								<div class="ui stacked segment">
-									<h4> DATA PERIODE LABA RUGI</h4>
+									<h4> DATA PERIODE ARUS KAS</h4>
 									<div class="ui divider"></div>
 									<table width="100%" class="ui fixed table">
 										<tr>
@@ -35,7 +35,7 @@
 									</table>
 									<div class="ui divider"></div>
 									<div class="">
-										<a href="add_labarugi.php?periode=<?=$data['id_periode']?>" class="ui blue button">
+										<a href="add_arus_kas.php?periode=<?=$data['id_periode']?>" class="ui blue button">
 											<i class="plus icon"></i>TAMBAH DATA
 										</a>
 										<br><br>
@@ -53,28 +53,28 @@
 											</tr>
 										</thead>
 										<tbody>
-											<?php $all = getDatalr($id_periode); $no = 1;?>
+											<?php $all = getDataak($id_periode); $no = 1;?>
 									    	<?php 
 									    	$total_saldo_awal = 0;
 									    	$total_bulan_berjalan = 0;
 									    	$total_saldo_akhir = 0;
-									    	foreach ($all as $dlr) { 
-									    		$total_saldo_awal 		= $total_saldo_awal + $dlr['saldo_awal'];
-									    		$total_bulan_berjalan 	= $total_bulan_berjalan + $dlr['bulan_berjalan'];
-									    		$total_saldo_akhir 		= $total_saldo_akhir + $dlr['saldo_akhir'];
+									    	foreach ($all as $dak) { 
+									    		$total_saldo_awal 		= $total_saldo_awal + $dak['saldo_awal'];
+									    		$total_bulan_berjalan 	= $total_bulan_berjalan + $dak['bulan_berjalan'];
+									    		$total_saldo_akhir 		= $total_saldo_akhir + $dak['saldo_akhir'];
 									    	?>
 									    	<tr>
 									    		<td><?= $no++ ?></td>
-									    	    <td><?= $dlr['tgl_masuk'] ?></td>
-									    	    <td><?= $dlr['ket_biaya'] ?></td>
-									    	    <td style="text-align: right;">Rp<?= number_format($dlr['saldo_awal'], 0 , '' , '.' ) ?></td>
-									    	    <td style="text-align: right;">Rp<?= number_format($dlr['bulan_berjalan'], 0 , '' , '.' ) ?></td>
-									    	    <td style="text-align: right;">Rp<?= number_format($dlr['saldo_akhir'], 0 , '' , '.' ) ?></td>
+									    	    <td><?= $dak['tgl_masuk'] ?></td>
+									    	    <td><?= $dak['ket_biaya'] ?></td>
+									    	    <td style="text-align: right;">Rp<?= number_format($dak['saldo_awal'], 0 , '' , '.' ) ?></td>
+									    	    <td style="text-align: right;">Rp<?= number_format($dak['bulan_berjalan'], 0 , '' , '.' ) ?></td>
+									    	    <td style="text-align: right;">Rp<?= number_format($dak['saldo_akhir'], 0 , '' , '.' ) ?></td>
 									    	    <td style="text-align: center;">
 									    	    	<div class="ui buttons">
-									    	    	  <a href="<?= 'edit_labarugi.php?id='.$dlr['id_lr_data']; ?>" class="ui green button"><i class="pen icon"></i></a>
+									    	    	  <a href="<?= 'edit_arus_kas.php?id='.$dak['id_ak_data']; ?>" class="ui green button"><i class="pen icon"></i></a>
 									    	    	  <div class="or" data-text="/"></div>
-									    	    	  <a href="functions/function_laba_rugi.php?periode=<?php echo $dlr['id_periode']; ?>&hapus=<?php echo $dlr['id_lr_data']; ?>" class="ui red button"><i class="trash alternate icon"></i></a>
+									    	    	  <a href="functions/function_arus_kas.php?periode=<?php echo $dak['id_periode']; ?>&hapus=<?php echo $dak['id_ak_data']; ?>" class="ui red button"><i class="trash alternate icon"></i></a>
 									    	    	</div>
 									    	    </td>
 									    	</tr>
