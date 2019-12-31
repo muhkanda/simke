@@ -14,7 +14,8 @@
 
 	function getPeriodeDetail($id_periode) {
         global $conn;
-        $sql    = "SELECT * FROM tb_arus_kas_periode WHERE id_periode='$id_periode'";
+        $fixid 	= mysqli_real_escape_string($conn, $id_periode);
+        $sql    = "SELECT * FROM tb_arus_kas_periode WHERE id_periode='$fixid'";
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
         mysqli_free_result($result);
@@ -23,7 +24,8 @@
 
     function getDataak($id_periode) {
         global $conn;
-        $sql    = "SELECT * FROM tb_arus_kas_data WHERE id_periode='$id_periode'";
+        $fixid 	= mysqli_real_escape_string($conn, $id_periode);
+        $sql    = "SELECT * FROM tb_arus_kas_data WHERE id_periode='$fixid'";
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
         mysqli_free_result($result);
@@ -32,7 +34,8 @@
 
     function getdetailak($id_ak_data) {
         global $conn;
-        $sql    = "SELECT * FROM tb_arus_kas_data WHERE id_ak_data='$id_ak_data'";
+        $fixid 	= mysqli_real_escape_string($conn, $id_ak_data);
+        $sql    = "SELECT * FROM tb_arus_kas_data WHERE id_ak_data='$fixid'";
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
         mysqli_free_result($result);
@@ -57,7 +60,8 @@
 
 	function UpdateData($id_ak_data, $id_periode, $ket_biaya, $tgl_masuk, $saldo_awal, $bulan_berjalan, $saldo_akhir) {
 		global $conn;
-		$sql 	= "UPDATE tb_arus_kas_data SET id_periode='$id_periode', ket_biaya='$ket_biaya', tgl_masuk='$tgl_masuk', saldo_awal='$saldo_awal', bulan_berjalan='$bulan_berjalan', saldo_akhir='$saldo_akhir' WHERE id_ak_data='$id_ak_data'";
+		$fixid 	= mysqli_real_escape_string($conn, $id_ak_data);
+		$sql 	= "UPDATE tb_arus_kas_data SET id_periode='$id_periode', ket_biaya='$ket_biaya', tgl_masuk='$tgl_masuk', saldo_awal='$saldo_awal', bulan_berjalan='$bulan_berjalan', saldo_akhir='$saldo_akhir' WHERE id_ak_data='$fixid'";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
@@ -65,7 +69,8 @@
 
 	function deleteData($id_ak_data) {
 		global $conn;
-		$sql 	= "DELETE FROM tb_arus_kas_data WHERE id_ak_data='$id_ak_data'";
+		$fixid 	= mysqli_real_escape_string($conn, $id_ak_data);
+		$sql 	= "DELETE FROM tb_arus_kas_data WHERE id_ak_data='$fixid'";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);

@@ -22,7 +22,8 @@
 
 	function showData($id) {
 		global $conn;
-		$sql 	= "SELECT * FROM tb_jabatan WHERE id_jabatan='$id'";
+		$fixid 	= mysqli_real_escape_string($conn, $id);
+		$sql 	= "SELECT * FROM tb_jabatan WHERE id_jabatan='$fixid'";
 		$result	= mysqli_query($conn, $sql);
 		return mysqli_fetch_all($result, MYSQLI_ASSOC);
 		mysqli_close($conn);
@@ -30,7 +31,8 @@
 
 	function editData($id, $nama_jabatan, $keterangan) {
 		global $conn;
-		$sql 	= "UPDATE tb_jabatan SET nama_jabatan='$nama_jabatan', keterangan='$keterangan' WHERE id_jabatan='$id'";
+		$fixid 	= mysqli_real_escape_string($conn, $id);
+		$sql 	= "UPDATE tb_jabatan SET nama_jabatan='$nama_jabatan', keterangan='$keterangan' WHERE id_jabatan='$fixid'";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
@@ -38,7 +40,8 @@
 
 	function deleteData($id) {
 		global $conn;
-		$sql 	= "DELETE FROM tb_jabatan WHERE id_jabatan='$id'";
+		$fixid 	= mysqli_real_escape_string($conn, $id);
+		$sql 	= "DELETE FROM tb_jabatan WHERE id_jabatan='$fixid'";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);

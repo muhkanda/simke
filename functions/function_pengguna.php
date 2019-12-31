@@ -22,7 +22,8 @@
 
 	function showData($id) {
 		global $conn;
-		$sql 	= "SELECT * FROM tb_user WHERE id_user='$id'";
+		$fixid 	= mysqli_real_escape_string($conn, $id);
+		$sql 	= "SELECT * FROM tb_user WHERE id_user='$fixid'";
 		$result	= mysqli_query($conn, $sql);
 		return mysqli_fetch_all($result, MYSQLI_ASSOC);
 		mysqli_close($conn);
