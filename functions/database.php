@@ -9,6 +9,22 @@
 	}
 ?> -->
 
+<!-- <?php
+	$host	= "muhkanda.tech";
+	$uname	= "jwwunqak_simke";
+	$pass	= "@Adminer2019";
+	$db 	= "jwwunqak_simke";
+	$conn 	= mysqli_connect($host, $uname, $pass, $db);
+	if (mysqli_connect_errno()) {
+		echo "Koneksi Database Gagal : ".mysqli_connect_errno();
+	}
+?> -->
+
+<!-- 
+	U : jwwunqak_simke
+	P : @Adminer2019
+ -->
+
 <?php
 	$host	= "remotemysql.com";
 	$uname	= "bSghyCT7Rh";
