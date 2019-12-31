@@ -31,7 +31,7 @@
 
     function sumGaji() {
         global $conn;
-        $sql    = "SELECT SUM(gaji) FROM tb_gaji";
+        $sql    = "SELECT (SUM(gaji) + (SELECT SUM(tunjangan) FROM tb_tunjangan) - (SELECT SUM(potongan) FROM tb_potongan)) 'total' FROM tb_gaji;";
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result);
         mysqli_free_result($result);
