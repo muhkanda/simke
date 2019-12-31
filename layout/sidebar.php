@@ -14,6 +14,19 @@
 							<a class="item" href="kelola_pengguna.php"><i class="user cog icon"></i> Pengelolaan Pengguna</a>
 							<a class="item" href="kelola_jabatan.php"><i class="briefcase icon"></i> Pengelolaan Jabatan</a>
 							<a class="item" href="kelola_divisi.php"><i class="user friends icon"></i> Pengelolaan Divisi</a>
+							<div class="ui horizontal accordion item">
+						        <span class="title item">
+						            <i class="dropdown icon"></i> Master Anggaran
+						        </span>
+						        <div class="content">
+					                <div class="simple field">
+					                    <a class="item" href="kelola_jenis_anggaran.php"><i class="money bill alternate icon"></i> Kelola Jenis Anggaran</a>
+					                </div>
+					                <div class="simple field">
+					                    <a class="item" href="kelola_anggaran.php"><i class="money bill alternate outline icon"></i> Kelola Anggaran</a>
+					                </div>
+						        </div>
+							</div>		
 							<!-- <a class="item" href="example_view.php"><i class="database icon"></i> Contoh Data</a>
 							<div class="ui horizontal accordion item">
 						        <span class="title item">
