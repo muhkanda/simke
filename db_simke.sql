@@ -1,10 +1,10 @@
 /*
 SQLyog Ultimate v12.5.1 (64 bit)
-MySQL - 5.5.63-MariaDB : Database - jwwunqak_simke
+MySQL - 5.5.63-MariaDB : Database - bSghyCT7Rh
 *********************************************************************
 */
 
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES UTF8MB4 */;
 
 /*!40101 SET SQL_MODE=''*/;
 
@@ -12,9 +12,9 @@ MySQL - 5.5.63-MariaDB : Database - jwwunqak_simke
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`jwwunqak_simke` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`bSghyCT7Rh` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `jwwunqak_simke`;
+USE `bSghyCT7Rh`;
 
 /*Table structure for table `tb_anggaran_data` */
 
