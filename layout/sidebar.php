@@ -13,7 +13,7 @@
                             <a class="item" href="kelola_arus_kas.php"><i class="exchange alternate icon"></i> Pengelolaan Arus Kas</a>
 							<a class="item" href="kelola_pengguna.php"><i class="user cog icon"></i> Pengelolaan Pengguna</a>
 							<a class="item" href="kelola_jabatan.php"><i class="briefcase icon"></i> Pengelolaan Jabatan</a>
-							<a class="item" href="kelola_jabatan.php"><i class="user friends icon"></i> Pengelolaan Divisi</a>
+							<a class="item" href="kelola_divisi.php"><i class="user friends icon"></i> Pengelolaan Divisi</a>
 							<!-- <a class="item" href="example_view.php"><i class="database icon"></i> Contoh Data</a>
 							<div class="ui horizontal accordion item">
 						        <span class="title item">
