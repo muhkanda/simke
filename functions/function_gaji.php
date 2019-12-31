@@ -10,7 +10,7 @@
                     JOIN tb_jabatan ON tb_pegawai.id_jabatan = tb_jabatan.id_jabatan
                     JOIN tb_gaji ON tb_pegawai.nik = tb_gaji.nik
                     JOIN tb_tunjangan ON tb_pegawai.nik = tb_tunjangan.nik";
-        $result	= mysqli_query($conn, $sql);
+        $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
         mysqli_free_result($result);
         mysqli_close($conn);

@@ -158,7 +158,7 @@
 															<td><?= $pt['keterangan'] ?></td>
 															<td style="text-align: right;">Rp<?= number_format($pt['potongan'], 0 , '' , '.' ) ?></td>
 															<td style="text-align: center;" width="20%">
-																<a href="" class="ui red button small"><i class="trash alternate icon"></i> Hapus Potongan</a>
+																<a href="functions/function_gaji.php?nik=<?php echo $pt['nik']; ?>&hapus=<?php echo $pt['id_potongan']; ?>" class="ui red button small"><i class="trash alternate icon"></i> Hapus Potongan</a>
 															</td>
 														</tr>
 														<?php 
