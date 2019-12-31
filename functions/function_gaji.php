@@ -18,7 +18,8 @@
 
     function getTotalPotongan($nik){
        global $conn;
-        $sql    = "SELECT SUM(potongan) as total_potongan FROM tb_potongan WHERE nik='$nik'";
+       $fixnik = mysqli_real_escape_string($conn, $nik);
+        $sql    = "SELECT SUM(potongan) as total_potongan FROM tb_potongan WHERE nik='$fixnik'";
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
         mysqli_free_result($result);
@@ -27,7 +28,8 @@
 
     function getPotongan($nik) {
         global $conn;
-        $sql    = "SELECT * FROM tb_potongan WHERE nik='$nik'";
+        $fixnik = mysqli_real_escape_string($conn, $nik);
+        $sql    = "SELECT * FROM tb_potongan WHERE nik='$fixnik'";
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
         mysqli_free_result($result);
@@ -44,12 +46,13 @@
 
     function getPegawai($nik) {
         global $conn;
+        $fixnik = mysqli_real_escape_string($conn, $nik);
         $sql    = "SELECT tb_pegawai.*, tb_jabatan.*, tb_gaji.*, tb_tunjangan.* 
                     FROM tb_pegawai
                     JOIN tb_jabatan ON tb_pegawai.id_jabatan = tb_jabatan.id_jabatan
                     JOIN tb_gaji ON tb_pegawai.nik = tb_gaji.nik
                     JOIN tb_tunjangan ON tb_pegawai.nik = tb_tunjangan.nik 
-                    WHERE tb_pegawai.nik='$nik'";
+                    WHERE tb_pegawai.nik='$fixnik'";
         $result = mysqli_query($conn, $sql);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
         mysqli_free_result($result);
@@ -58,7 +61,8 @@
 
     function UpdateGaji($nik, $gaji) {
         global $conn;
-        $sql    = "UPDATE tb_gaji SET gaji='$gaji' WHERE nik='$nik'";
+        $fixnik = mysqli_real_escape_string($conn, $nik);
+        $sql    = "UPDATE tb_gaji SET gaji='$gaji' WHERE nik='$fixnik'";
         $result = mysqli_query($conn, $sql);
         return ($result) ? true : false;
         mysqli_close($conn);
@@ -66,7 +70,8 @@
 
     function UpdateTunjangan($nik, $tunjangan) {
         global $conn;
-        $sql    = "UPDATE tb_tunjangan SET tunjangan='$tunjangan' WHERE nik='$nik'";
+        $fixnik = mysqli_real_escape_string($conn, $nik);
+        $sql    = "UPDATE tb_tunjangan SET tunjangan='$tunjangan' WHERE nik='$fixnik'";
         $result = mysqli_query($conn, $sql);
         return ($result) ? true : false;
         mysqli_close($conn);
