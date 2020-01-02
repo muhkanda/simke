@@ -7,23 +7,26 @@
 							<div class="item">
 								<img src="assets/images/user.png" id="sidebar-image">
 							</div>
-							<a class="item" href="index.php"><i class="chart line icon"></i> Dashboard</a>
+							<a class="item" href="index.php"><i class="table icon"></i> Dashboard</a>
 							<a class="item" href="kelola_pegawai.php"><i class="users icon"></i> Pengelolaan Pegawai</a>
                             <a class="item" href="kelola_gaji.php"><i class="money bill alternate outline icon"></i> Pengelolaan Gaji Pegawai</a>
                             <a class="item" href="kelola_arus_kas.php"><i class="exchange alternate icon"></i> Pengelolaan Arus Kas</a>
+							<a class="item" href="kelola_anggaran.php"><i class="handshake outline icon"></i> Pengelolaan Anggaran</a>
+							<a class="item" href="kelola_pendapatan.php"><i class="chart line icon"></i> Pengelolaan Pendapatan</a>
 							<a class="item" href="kelola_pengguna.php"><i class="user cog icon"></i> Pengelolaan Pengguna</a>
-							<a class="item" href="kelola_jabatan.php"><i class="briefcase icon"></i> Pengelolaan Jabatan</a>
-							<a class="item" href="kelola_divisi.php"><i class="user friends icon"></i> Pengelolaan Divisi</a>
 							<div class="ui horizontal accordion item">
 						        <span class="title item">
-						            <i class="dropdown icon"></i> Master Anggaran
+						            <i class="dropdown icon"></i> Master Data
 						        </span>
 						        <div class="content">
 					                <div class="simple field">
 					                    <a class="item" href="kelola_jenis_anggaran.php"><i class="money bill alternate icon"></i> Kelola Jenis Anggaran</a>
 					                </div>
 					                <div class="simple field">
-					                    <a class="item" href="kelola_anggaran.php"><i class="money bill alternate outline icon"></i> Kelola Anggaran</a>
+					                    <a class="item" href="kelola_jabatan.php"><i class="briefcase icon"></i> Kelola Jabatan</a>
+					                </div>
+					                <div class="simple field">
+					                    <a class="item" href="kelola_divisi.php"><i class="user friends icon"></i> Kelola Divisi</a>
 					                </div>
 						        </div>
 							</div>		
