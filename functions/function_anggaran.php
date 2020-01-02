@@ -69,10 +69,10 @@
 		mysqli_close($conn);
 	}
 
-	function UpdateData($id_anggaran_data, $id_periode, $ket_biaya, $tgl_masuk, $saldo_awal, $bulan_berjalan, $saldo_aghir) {
+	function UpdateData($id_anggaran_data, $id_jenis_anggaran, $rencana_anggaran, $realisasi_anggaran, $status) {
 		global $conn;
 		$fixid 	= mysqli_real_escape_string($conn, $id_anggaran_data);
-		$sql 	= "UPDATE tb_anggaran_data SET id_periode='$id_periode', ket_biaya='$ket_biaya', tgl_masuk='$tgl_masuk', saldo_awal='$saldo_awal', bulan_berjalan='$bulan_berjalan', saldo_aghir='$saldo_aghir' WHERE id_anggaran_data='$fixid'";
+		$sql 	= "UPDATE tb_anggaran_data SET id_jenis_anggaran='$id_jenis_anggaran', rencana_anggaran='$rencana_anggaran', realisasi_anggaran='$realisasi_anggaran', status='$status'WHERE id_anggaran_data='$fixid'";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
@@ -84,6 +84,16 @@
 		$sql 	= "DELETE FROM tb_anggaran_data WHERE id_anggaran_data='$fixid'";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
+		mysqli_close($conn);
+	}
+
+	function getSelected($id_anggaran_data) {
+		global $conn;
+		$fixid 	= mysqli_real_escape_string($conn, $id_anggaran_data);
+		$sql 	= "SELECT a.id_jenis_anggaran, a.pos_anggaran, b.status FROM tb_jenis_anggaran AS a INNER JOIN tb_anggaran_data AS b ON a.id_jenis_anggaran = b.id_jenis_anggaran WHERE b.id_anggaran_data='$fixid'";
+		$result	= mysqli_query($conn, $sql);
+		return mysqli_fetch_all($result, MYSQLI_ASSOC);
+		mysqli_free_result($result);
 		mysqli_close($conn);
 	}
 
@@ -104,18 +114,17 @@
         header("location:../detail_periode_anggaran.php?data=".$id_periode);
     }
 
-    if (isset($_POST['updateag'])) {
-		$id_anggaran_data 		= mysqli_real_escape_string($conn, $_POST['id_anggaran_data']);
-		$id_periode			= mysqli_real_escape_string($conn, $_POST['id_periode']);
-		$ket_biaya			= mysqli_real_escape_string($conn, $_POST['ket_biaya']);
-		$tgl_masuk			= mysqli_real_escape_string($conn, $_POST['tgl_masuk']);
-		$saldo_awal			= mysqli_real_escape_string($conn, $_POST['saldo_awal']);
-		$bulan_berjalan 	= mysqli_real_escape_string($conn, $_POST['bulan_berjalan']);
-		$saldo_aghir 		= mysqli_real_escape_string($conn, $_POST['saldo_aghir']);
-		$updateag 			= UpdateData($id_anggaran_data, $id_periode, $ket_biaya, $tgl_masuk, $saldo_awal, $bulan_berjalan, $saldo_aghir);
+    if (isset($_POST['editag'])) {
+    	$id_anggaran_data	= mysqli_real_escape_string($conn, $_POST['id_anggaran_data']);
+		$id_periode         = mysqli_real_escape_string($conn, $_POST['id_periode']);
+        $id_jenis_anggaran	= mysqli_real_escape_string($conn, $_POST['id_jenis_anggaran']);
+        $rencana_anggaran  	= mysqli_real_escape_string($conn, $_POST['rencana_anggaran']);
+        $realisasi_anggaran	= mysqli_real_escape_string($conn, $_POST['realisasi_anggaran']);
+        $status		    	= mysqli_real_escape_string($conn, $_POST['status']);
+        $update            	= UpdateData($id_anggaran_data, $id_jenis_anggaran, $rencana_anggaran, $realisasi_anggaran, $status);
 		session_start();
 		unset ($_SESSION["message"]);
-		if ($updateag) {			
+		if ($update) {			
 			$_SESSION['message'] = $edited;
 		}else {
 			$_SESSION['message'] = $failed;
