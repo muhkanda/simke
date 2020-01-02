@@ -91,7 +91,7 @@
         }else {
             $_SESSION['message'] = $failed;
         }
-        header("location:../detail_periode.php?data=".$id_periode);
+        header("location:../detail_periode_kas.php?data=".$id_periode);
     }
 
     if (isset($_POST['updateak'])) {
@@ -110,7 +110,7 @@
 		}else {
 			$_SESSION['message'] = $failed;
 		}
-		header("location:../detail_periode.php?data=".$id_periode);
+		header("location:../detail_periode_kas.php?data=".$id_periode);
 	}
 
 
@@ -132,14 +132,16 @@
 	if (isset($_GET['periode']) && isset($_GET['hapus'])) {
         $id_periode = $_GET['periode'];
         $id_ak_data = $_GET['hapus'];
-        $deleted = deleteData($id_ak_data);
+        $del = deleteData($id_ak_data);
+        session_start();
         unset ($_SESSION["message"]);
-        if ($deleted) {         
+        if ($del) {         
             $_SESSION['message'] = $deleted;
         }else {
             $_SESSION['message'] = $failed;
         }
-        header("location:../detail_periode.php?data=".$id_periode);
+        print_r($_SESSION['message']);
+        header("location:../detail_periode_kas.php?data=".$id_periode);
     }
 
 

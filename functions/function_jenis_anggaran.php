@@ -72,10 +72,10 @@
 		header("location:../kelola_jenis_anggaran.php");
 	}elseif (isset($_GET['hapus'])) {
 		$id		= mysqli_real_escape_string($conn, $_GET['hapus']);
-		$delete = deleteData($id);
+		$del = deleteData($id);
 		session_start();
 		unset ($_SESSION["message"]);
-		if ($delete) {			
+		if ($del) {			
 			$_SESSION['message'] = $deleted;
 		}else {
 			$_SESSION['message'] = $failed;

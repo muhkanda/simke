@@ -55,7 +55,7 @@
 					                        <i class="save icon"></i>
 					                        SIMPAN
 					                    </button>
-					                    <a class="ui button" href="detail_periode.php?data=<?=$periode?>">
+					                    <a class="ui button" href="detail_periode_kas.php?data=<?=$periode?>">
 					                        <i class="cancel icon"></i>
 					                        BATAL
 					                    </a>
