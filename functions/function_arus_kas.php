@@ -140,7 +140,6 @@
         }else {
             $_SESSION['message'] = $failed;
         }
-        print_r($_SESSION['message']);
         header("location:../detail_periode_kas.php?data=".$id_periode);
     }
 
