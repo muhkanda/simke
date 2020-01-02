@@ -60,7 +60,7 @@
 									    	foreach ($all as $pdp) { 
 									    		$total_pendapatan 		= $total_pendapatan + $pdp['pendapatan'];
 									    		$total_biaya 			= $total_biaya + $pdp['biaya'];
-									    		$total_labarugi 		= $total_labarugi + $total_pendapatan - $total_biaya;
+									    		$total_labarugi 		= $total_pendapatan - $total_biaya;
 									    	?>
 									    	<tr>
 									    		<td><?= $no++ ?></td>
