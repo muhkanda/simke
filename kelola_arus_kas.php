@@ -69,7 +69,7 @@
 								    	    	<div class="ui buttons">
 								    	    	  <!-- <a href="" class="ui green button"><i class="pen icon"></i></a>
 								    	    	  <div class="or" data-text="/"></div> -->
-								    	    	  <a href="detail_periode.php?data=<?php echo $data['id_periode']; ?>" class="ui blue button"><i class="list icon"></i> Data Arus Kas</a>
+								    	    	  <a href="detail_periode_kas.php?data=<?php echo $data['id_periode']; ?>" class="ui blue button"><i class="list icon"></i> Data Arus Kas</a>
 								    	    	</div>
 								    	    </td>
 								    	</tr>

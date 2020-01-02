@@ -120,9 +120,10 @@
     if (isset($_GET['nik']) && isset($_GET['hapus'])) {
         $nik = $_GET['nik'];
         $id = $_GET['hapus'];
-        $deleted = deletePotongan($id);
+        $del = deletePotongan($id);
+        session_start();
         unset ($_SESSION["message"]);
-        if ($deleted) {         
+        if ($del) {         
             $_SESSION['message'] = $deleted;
         }else {
             $_SESSION['message'] = $failed;

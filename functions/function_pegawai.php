@@ -94,9 +94,10 @@
 
 	if (isset($_GET['hapus'])) {
 		$id = $_GET['hapus'];
-		$deleted = deleteData($id);
+		$del = deleteData($id);
+		session_start();
 		unset ($_SESSION["message"]);
-		if ($deleted) {			
+		if ($del) {			
 			$_SESSION['message'] = $deleted;
 		}else {
 			$_SESSION['message'] = $failed;
