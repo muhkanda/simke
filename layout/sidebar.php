@@ -8,45 +8,52 @@
 								<img src="assets/images/user.png" id="sidebar-image">
 							</div>
 							<a class="item" href="index.php"><i class="table icon"></i> Dashboard</a>
-							<a class="item" href="kelola_pegawai.php"><i class="users icon"></i> Pengelolaan Pegawai</a>
-                            <a class="item" href="kelola_gaji.php"><i class="money bill alternate outline icon"></i> Pengelolaan Gaji Pegawai</a>
-                            <a class="item" href="kelola_arus_kas.php"><i class="exchange alternate icon"></i> Pengelolaan Arus Kas</a>
-							<a class="item" href="kelola_anggaran.php"><i class="handshake outline icon"></i> Pengelolaan Anggaran</a>
-							<a class="item" href="kelola_pendapatan.php"><i class="chart line icon"></i> Pengelolaan Pendapatan</a>
-							<a class="item" href="kelola_pengguna.php"><i class="user cog icon"></i> Pengelolaan Pengguna</a>
-							<div class="ui horizontal accordion item">
-						        <span class="title item">
-						            <i class="dropdown icon"></i> Master Data
-						        </span>
-						        <div class="content">
-					                <div class="simple field">
-					                    <a class="item" href="kelola_jenis_anggaran.php"><i class="money bill alternate icon"></i> Kelola Jenis Anggaran</a>
-					                </div>
-					                <div class="simple field">
-					                    <a class="item" href="kelola_jabatan.php"><i class="briefcase icon"></i> Kelola Jabatan</a>
-					                </div>
-					                <div class="simple field">
-					                    <a class="item" href="kelola_divisi.php"><i class="user friends icon"></i> Kelola Divisi</a>
-					                </div>
-						        </div>
-							</div>		
-							<!-- <a class="item" href="example_view.php"><i class="database icon"></i> Contoh Data</a>
-							<div class="ui horizontal accordion item">
-						        <span class="title item">
-						            <i class="dropdown icon"></i> Contoh Element
-						        </span>
-						        <div class="content">
-					                <div class="simple field">
-					                    <a class="item" href="example_form.php"><i class="keyboard icon"></i> Contoh Form</a>
-					                </div>
-					                <div class="simple field">
-					                    <a class="item" href="example_message.php"><i class="envelope outline icon"></i> Contoh Pesan</a>
-					                </div>
-					                <div class="simple field">
-					                    <a class="item" href="example_blank.php"><i class="file outline icon"></i> Halaman Blank</a>
-					                </div>
-						        </div>
-							</div>	 -->	
+							<?php 
+
+							$role = $_SESSION['role'];
+
+							$menuPegawai = '<a class="item" href="kelola_pegawai.php"><i class="users icon"></i> Pengelolaan Pegawai</a>';
+							$menuGaji = '<a class="item" href="kelola_gaji.php"><i class="money bill alternate outline icon"></i> Pengelolaan Gaji Pegawai</a>';
+							$menuArusKas = '<a class="item" href="kelola_arus_kas.php"><i class="exchange alternate icon"></i> Pengelolaan Arus Kas</a>';
+							$menuAnggaran = '<a class="item" href="kelola_anggaran.php"><i class="handshake outline icon"></i> Pengelolaan Anggaran</a>';
+							$menuPendapatan = '<a class="item" href="kelola_pendapatan.php"><i class="chart line icon"></i> Pengelolaan Pendapatan</a>';
+							$menuPengguna = '<a class="item" href="kelola_pengguna.php"><i class="user cog icon"></i> Pengelolaan Pengguna</a>';
+							$menuJenisAnggaran = '<a class="item" href="kelola_jenis_anggaran.php"><i class="money bill alternate icon"></i> Kelola Jenis Anggaran</a>';
+							$menuJabatan = '<a class="item" href="kelola_jabatan.php"><i class="briefcase icon"></i> Kelola Jabatan</a>';
+							$menuDivisi = '<a class="item" href="kelola_divisi.php"><i class="user friends icon"></i> Kelola Divisi</a>';
+							$menuNeraca = '<a class="item" href="#"><i class="balance scale icon"></i> Neraca</a>';
+
+							if ($role == 1) {
+								echo $menuPegawai;
+								echo $menuJabatan;
+								echo $menuDivisi;
+								echo $menuPengguna;
+							}
+
+							if ($role == 4) {
+								echo $menuGaji;
+								echo $menuPendapatan;
+								echo $menuAnggaran;
+								echo $menuJenisAnggaran;
+								echo $menuNeraca;
+							}
+
+							if ($role == 3) {
+								echo $menuGaji;
+								echo $menuPendapatan;
+								echo $menuNeraca;
+								echo $menuAnggaran;
+							}
+
+							if ($role == 2) {
+								echo $menuArusKas;
+								echo $menuPendapatan;
+								echo $menuNeraca;
+								echo $menuAnggaran;
+							}
+							?>
+							
+                            
 							<a class="item" href="functions/logout.php"><i class="sign out alternate icon"></i> Logout</a>
 							<a class="item"></a>
 						</div>

@@ -9,8 +9,9 @@
 	if ($data > 0) {
 		$_SESSION['login'] = "yes";
 		while ($key = mysqli_fetch_array($query)) {
-			$_SESSION['nama'] = $key['nama'];
-			// $_SESSION['role'] = $key['role'];
+			$_SESSION['nama'] 		= $key['nama'];
+			$_SESSION['username'] 	= $key['username'];
+			$_SESSION['role'] 		= $key['role'];
 		}
 		$_SESSION['message'] = 'logged';
 		header("location:../index.php");
