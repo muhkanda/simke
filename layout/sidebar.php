@@ -7,16 +7,16 @@
 							<div class="item">
 								<img src="assets/images/user.png" id="sidebar-image">
 							</div>
-							<a class="item" href="index.php"><i class="table icon"></i> Dashboard</a>
+							<a class="item" href="index.php"><i class="table icon"></i> Home</a>
 							<?php 
 
 							$role = $_SESSION['role'];
 
-							$menuPegawai = '<a class="item" href="kelola_pegawai.php"><i class="users icon"></i> Pengelolaan Pegawai</a>';
-							$menuGaji = '<a class="item" href="kelola_gaji.php"><i class="money bill alternate outline icon"></i> Pengelolaan Gaji Pegawai</a>';
+							$menuPegawai = '<a class="item" style="padding-left: 30px !important; padding-right: 30px !important;" href="kelola_pegawai.php">Pengelolaan Pegawai</a>';
+							$menuGaji = '<a class="item" style="padding-left: 30px !important; padding-right: 30px !important;" href="kelola_gaji.php"><i class="money bill alternate outline icon"></i> Pengelolaan Gaji Pegawai</a>';
 							$menuArusKas = '<a class="item" href="kelola_arus_kas.php"><i class="exchange alternate icon"></i> Pengelolaan Arus Kas</a>';
 							$menuAnggaran = '<a class="item" href="kelola_anggaran.php"><i class="handshake outline icon"></i> Pengelolaan Anggaran</a>';
-							$menuPendapatan = '<a class="item" href="kelola_pendapatan.php"><i class="chart line icon"></i> Pengelolaan Pendapatan</a>';
+							$menuPendapatan = '<a class="item" style="padding-left: 30px !important; padding-right: 30px !important;"  href="kelola_pendapatan.php"><i class="chart line icon"></i> Pengelolaan Pendapatan</a>';
 							$menuPengguna = '<a class="item" href="kelola_pengguna.php"><i class="user cog icon"></i> Pengelolaan Pengguna</a>';
 							$menuJenisAnggaran = '<a class="item" href="kelola_jenis_anggaran.php"><i class="money bill alternate icon"></i> Kelola Jenis Anggaran</a>';
 							$menuJabatan = '<a class="item" href="kelola_jabatan.php"><i class="briefcase icon"></i> Kelola Jabatan</a>';
@@ -24,30 +24,79 @@
 							$menuNeraca = '<a class="item" href="#"><i class="balance scale icon"></i> Neraca</a>';
 
 							if ($role == 1) {
-								echo $menuPegawai;
+								echo '<div class="ui accordion item" style="padding: unset !important;">
+										    <div class="title item" style="padding: 14px 16px;">
+										        <i class="dropdown icon"></i> Pegawai
+										    </div>
+										    <div class="content" style="padding: 0px 0px !important;">
+										        '.$menuPegawai.'
+										    </div>
+										</div>';
 								echo $menuJabatan;
-								echo $menuDivisi;
+								echo '<div class="ui accordion item" style="padding: unset !important;">
+										    <div class="title item" style="padding: 14px 16px;">
+										        <i class="dropdown icon"></i> Divisi
+										    </div>
+										    <div class="content" style="padding: 0px 0px !important;">
+										        '.$menuDivisi.'
+										    </div>
+										</div>';
 								echo $menuPengguna;
 							}
 
 							if ($role == 4) {
-								echo $menuGaji;
-								echo $menuPendapatan;
+								echo '<div class="ui accordion item" style="padding: unset !important;">
+										    <div class="title item" style="padding: 14px 16px;">
+										        <i class="dropdown icon"></i> Pegawai
+										    </div>
+										    <div class="content" style="padding: 0px 0px !important;">
+										        '.$menuGaji.'
+										    </div>
+										</div>';
+								echo '<div class="ui accordion item" style="padding: unset !important;">
+										    <div class="title item" style="padding: 14px 16px;">
+										        <i class="dropdown icon"></i> Divisi
+										    </div>
+										    <div class="content" style="padding: 0px 0px !important;">
+										        '.$menuPendapatan.'
+										    </div>
+										</div>';
 								echo $menuAnggaran;
 								echo $menuJenisAnggaran;
 								echo $menuNeraca;
 							}
 
 							if ($role == 3) {
-								echo $menuGaji;
-								echo $menuPendapatan;
+								echo '<div class="ui accordion item" style="padding: unset !important;">
+										    <div class="title item" style="padding: 14px 16px;">
+										        <i class="dropdown icon"></i> Pegawai
+										    </div>
+										    <div class="content" style="padding: 0px 0px !important;">
+										        '.$menuGaji.'
+										    </div>
+										</div>';
+								echo '<div class="ui accordion item" style="padding: unset !important;">
+										    <div class="title item" style="padding: 14px 16px;">
+										        <i class="dropdown icon"></i> Divisi
+										    </div>
+										    <div class="content" style="padding: 0px 0px !important;">
+										        '.$menuPendapatan.'
+										    </div>
+										</div>';
 								echo $menuNeraca;
 								echo $menuAnggaran;
 							}
 
 							if ($role == 2) {
+								echo '<div class="ui accordion item" style="padding: unset !important;">
+										    <div class="title item" style="padding: 14px 16px;">
+										        <i class="dropdown icon"></i> Divisi
+										    </div>
+										    <div class="content" style="padding: 0px 0px !important;">
+										        '.$menuPendapatan.'
+										    </div>
+										</div>';
 								echo $menuArusKas;
-								echo $menuPendapatan;
 								echo $menuNeraca;
 								echo $menuAnggaran;
 							}

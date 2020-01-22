@@ -1,5 +1,10 @@
 	</div>
 </body>
+<script>
+	$(".ui.accordion").accordion({
+		exclusive: false
+	});
+</script>
 <!-- inject:js -->
 <script src="assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="assets/vendors/datatables.net/datatables.net-se/js/dataTables.semanticui.min.js"></script>
