@@ -21,7 +21,8 @@
 							$menuJenisAnggaran = '<a class="item" href="kelola_jenis_anggaran.php"><i class="money bill alternate icon"></i> Kelola Jenis Anggaran</a>';
 							$menuJabatan = '<a class="item" href="kelola_jabatan.php"><i class="briefcase icon"></i> Kelola Jabatan</a>';
 							$menuDivisi = '<a class="item" href="kelola_divisi.php"><i class="user friends icon"></i> Kelola Divisi</a>';
-							$menuNeraca = '<a class="item" href="#"><i class="balance scale icon"></i> Neraca</a>';
+							$menuAkun = '<a class="item" href="kelola_akun.php"><i class="briefcase icon"></i> Kelola Akun</a>';
+							$menuTrans = '<a class="item" href="kelola_transaksi.php"><i class="handshake icon"></i> Kelola Transaksi</a>';
 
 							if ($role == 1) {
 								echo '<div class="ui accordion item" style="padding: unset !important;">
@@ -42,6 +43,8 @@
 										    </div>
 										</div>';
 								echo $menuPengguna;
+								echo $menuAkun;
+								echo $menuTrans;
 							}
 
 							if ($role == 4) {
@@ -63,7 +66,8 @@
 										</div>';
 								echo $menuAnggaran;
 								echo $menuJenisAnggaran;
-								echo $menuNeraca;
+								echo $menuAkun;
+								echo $menuTrans;
 							}
 
 							if ($role == 3) {
@@ -83,7 +87,8 @@
 										        '.$menuPendapatan.'
 										    </div>
 										</div>';
-								echo $menuNeraca;
+								echo $menuAkun;
+								echo $menuTrans;
 								echo $menuAnggaran;
 							}
 
@@ -97,7 +102,8 @@
 										    </div>
 										</div>';
 								echo $menuArusKas;
-								echo $menuNeraca;
+								echo $menuAkun;
+								echo $menuTrans;
 								echo $menuAnggaran;
 							}
 							?>
