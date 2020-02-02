@@ -45,6 +45,7 @@
 								echo $menuPengguna;
 								echo $menuAkun;
 								echo $menuTrans;
+								echo $menuArusKas;
 							}
 
 							if ($role == 4) {

@@ -44,8 +44,10 @@
 										<thead>
 											<tr>
 												<th width="5%">No</th>
-												<th>Tanggal</th>
-												<th>Keterangan</th>
+												<th>Kode Akun</th>
+												<th>Nama Akun</th>
+												<th>Grup</th>
+												<th>Jenis</th>
 												<th>Saldo Awal</th>
 												<th>Bulan Berjalan</th>
 												<th>Saldo Akhir</th>
@@ -65,8 +67,10 @@
 									    	?>
 									    	<tr>
 									    		<td><?= $no++ ?></td>
-									    	    <td><?= $dak['tgl_masuk'] ?></td>
-									    	    <td><?= $dak['ket_biaya'] ?></td>
+									    	    <td><?= $dak['kode_akun'] ?></td>
+									    	    <td><?= $dak['nama_akun'] ?></td>
+									    	    <td><?= $dak['grup'] ?></td>
+									    	    <td><?= $dak['jenis'] ?></td>
 									    	    <td style="text-align: right;">Rp<?= number_format($dak['saldo_awal'], 0 , '' , '.' ) ?></td>
 									    	    <td style="text-align: right;">Rp<?= number_format($dak['bulan_berjalan'], 0 , '' , '.' ) ?></td>
 									    	    <td style="text-align: right;">Rp<?= number_format($dak['saldo_akhir'], 0 , '' , '.' ) ?></td>
@@ -82,7 +86,7 @@
 										</tbody>
 										<tfoot>
 											<tr>
-												<th colspan="3" style="text-align: right;">Total Saldo</th>
+												<th colspan="5" style="text-align: right;">Total Saldo</th>
 												<th style="text-align: right;">Rp<?= number_format($total_saldo_awal, 0 , '' , '.' ) ?></th>
 												<th style="text-align: right;">Rp<?= number_format($total_bulan_berjalan, 0 , '' , '.' ) ?></th>
 												<th style="text-align: right;">Rp<?= number_format($total_saldo_akhir, 0 , '' , '.' ) ?></th>

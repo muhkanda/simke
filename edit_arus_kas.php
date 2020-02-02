@@ -26,14 +26,19 @@
 					                	<input type="hidden" name="id_periode" value="<?= $data['id_periode'] ?>">
 					                    <div class="ui form">
 				                            <div class="field">
-				                                <label>Keterangan Biaya</label>
-				                                <input type="text" name="ket_biaya" id="ket_biaya" placeholder="" value="<?= $data['ket_biaya'] ?>">
-				                            </div>
-				                            <div class="field">
 				                                <label>Tanggal</label>
 				                                <div class="ui calendar" id="standard_calendar">
 				                                	<input type="text" name="tgl_masuk" placeholder="YYYY-MM-DD" value="<?= $data['tgl_masuk'] ?>">
 				                                </div>
+				                            </div>
+				                            <div class="field">
+				                                <label>Pilih Akun</label>
+					                            <select name="id_akun" id="id_akun" class="ui dropdown">
+					                            	<?php $getAkun = getAkun();
+					                            		foreach ($getAkun as $i) { ?>
+							                            	<option value="<?= $i['id_akun'] ?>" <?=$data['id_akun'] == $i['id_akun'] ? 'selected' : '';?>><?= $i['nama_akun'] ?> (<?= $i['kode_akun'] ?>)</option>
+							                        <?php } ?>
+					                            </select>
 				                            </div>
 				                            <div class="field">
 				                                <label>Saldo Awal</label>
@@ -43,17 +48,19 @@
 				                                </div>
 				                            </div>
 				                            <div class="field">
-				                                <label>Saldo Bulan Berjalan</label>
-				                                <div class="ui right labeled input">
-				                                	<label for="amount" class="ui label">Rp</label>
-													<input type="number" name="bulan_berjalan" id="bulan_berjalan" placeholder="3000000" maxlength="15" value="<?= $data['bulan_berjalan'] ?>" onkeyup="hitung_total()">
-				                                </div>
+				                                <label>Pilih Transaksi</label>
+					                            <select name="id_transaksi" id="id_transaksi" class="ui dropdown">
+					                            	<?php $getTrans = getTrans();
+					                            		foreach ($getTrans as $t) { ?>
+							                            	<option value="<?= $t['id_transaksi'] ?>" <?=$data['id_transaksi'] == $t['id_transaksi'] ? 'selected' : '';?>><?= $t['keterangan'] ?> (Rp<?= number_format($t['total_trans'], 0 , '' , '.' ) ?>)</option>
+							                        <?php } ?>
+					                            </select>
 				                            </div>
 				                            <div class="field">
 				                                <label>Saldo Akhir</label>
 				                                <div class="ui right labeled input">
 				                                	<label for="amount" class="ui label">Rp</label>
-													<input type="number" name="saldo_akhir" id="saldo_akhir" readonly placeholder="3000000" maxlength="15" value="<?= $data['saldo_akhir'] ?>">
+													<input type="number" name="saldo_akhir" id="saldo_akhir" placeholder="3000000" maxlength="15" value="<?= $data['saldo_akhir'] ?>">
 				                                </div>
 				                            </div>
 					                    </div>
@@ -95,13 +102,13 @@
 	  })
 	;
 
-	function hitung_total() {
-		var saldo_awal = parseInt(document.getElementById('awal_saldo').value);
-		var saldo_berjalan = parseInt(document.getElementById('bulan_berjalan').value);
-		var total_saldo = saldo_awal + saldo_berjalan;
-		// console.log(total_saldo);
-		document.getElementById("saldo_akhir").value = total_saldo;
-	}
+	// function hitung_total() {
+	// 	var saldo_awal = parseInt(document.getElementById('awal_saldo').value);
+	// 	var saldo_berjalan = parseInt(document.getElementById('bulan_berjalan').value);
+	// 	var total_saldo = saldo_awal + saldo_berjalan;
+	// 	// console.log(total_saldo);
+	// 	document.getElementById("saldo_akhir").value = total_saldo;
+	// }
 
 	$(document).ready(function() {
 		
