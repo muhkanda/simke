@@ -4,7 +4,7 @@
 	$username	= mysqli_real_escape_string($conn, $_POST['username']);
 	$password	= mysqli_real_escape_string($conn, $_POST['password']);
 	$encrypted	= md5($password);
-	$query		= mysqli_query($conn, "SELECT * FROM tb_user WHERE username='$username' AND password='$encrypted'");
+	$query		= mysqli_query($conn, "SELECT * FROM tb_pengguna WHERE username='$username' AND password='$encrypted'");
 	$data 		= mysqli_num_rows($query);
 	if ($data > 0) {
 		$_SESSION['login'] = "yes";
@@ -16,7 +16,16 @@
 		$_SESSION['message'] = 'logged';
 		header("location:../index.php");
 	}else{
-		$_SESSION['message'] = 'logfail';
+		$logfail = "<script>
+                $('body')
+                  .toast({
+                    title: 'Login Gagal!',
+                    message: 'Username / Password Salah!',
+                    class: 'red',
+                    showProgress: 'top'
+                });
+            </script>";
+		$_SESSION['message'] = $logfail;
 		header("location:../login.php");
 	}
 	mysqli_free_result($query);

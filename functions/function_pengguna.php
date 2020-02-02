@@ -5,7 +5,7 @@
 
 	function getData() {
 		global $conn;
-		$sql 	= "SELECT * FROM tb_user";
+		$sql 	= "SELECT * FROM tb_pengguna";
 		$result	= mysqli_query($conn, $sql);
 		return mysqli_fetch_all($result, MYSQLI_ASSOC);
 		mysqli_free_result($result);
@@ -14,7 +14,7 @@
 
 	function addData($nama, $username, $password, $role) {
 		global $conn;
-		$sql 	= "INSERT INTO tb_user (nama, username, password, role) VALUES ('$nama','$username','$password','$role')";
+		$sql 	= "INSERT INTO tb_pengguna (nama, username, password, role) VALUES ('$nama','$username','$password','$role')";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
@@ -23,7 +23,7 @@
 	function showData($id) {
 		global $conn;
 		$fixid 	= mysqli_real_escape_string($conn, $id);
-		$sql 	= "SELECT * FROM tb_user WHERE id_user='$fixid'";
+		$sql 	= "SELECT * FROM tb_pengguna WHERE id_user='$fixid'";
 		$result	= mysqli_query($conn, $sql);
 		return mysqli_fetch_all($result, MYSQLI_ASSOC);
 		mysqli_close($conn);
@@ -31,7 +31,7 @@
 
 	function editData($id, $nama, $username, $password, $role) {
 		global $conn;
-		$sql 	= "UPDATE tb_user SET nama='$nama', username='$username', password='$password', role='$role' WHERE id_user='$id'";
+		$sql 	= "UPDATE tb_pengguna SET nama='$nama', username='$username', password='$password', role='$role' WHERE id_user='$id'";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
@@ -39,7 +39,7 @@
 
 	function deleteData($id) {
 		global $conn;
-		$sql 	= "DELETE FROM tb_user WHERE id_user='$id'";
+		$sql 	= "DELETE FROM tb_pengguna WHERE id_user='$id'";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
