@@ -12,6 +12,32 @@
 		mysqli_close($conn);
 	}
 
+	function getRencana() {
+		global $conn;
+		$dateNow = date("Y-m-d");
+		$beforeMonth = date('Y-m-d', strtotime('-1 month', strtotime($dateNow)));
+		$dateFormat = date_create($beforeMonth);
+		$beforePeriode = date_format($dateFormat, "Y-m");
+		$dateFormat2 = date_create($dateNow);
+		$nowPeriode = date_format($dateFormat2, "Y-m");
+
+
+		$sql 	= "SELECT tb_transaksi.id_transaksi AS id_transaksi, tb_transaksi.keterangan AS keterangan, tb_transaksi.periode AS periode,
+						IF((SUM(tb_transaksi_detail.debit) IS NULL),0, SUM(tb_transaksi_detail.debit)) AS debit,
+						IF((SUM(tb_transaksi_detail.kredit) IS NULL),0, SUM(tb_transaksi_detail.kredit)) AS kredit,
+						IF((SUM(tb_transaksi_detail.debit) - SUM(tb_transaksi_detail.kredit) IS NULL),0, SUM(tb_transaksi_detail.debit) - SUM(tb_transaksi_detail.kredit)) AS total_trans
+					FROM tb_transaksi
+					LEFT JOIN tb_transaksi_detail ON tb_transaksi.id_transaksi = tb_transaksi_detail.id_transaksi
+					WHERE tb_transaksi.periode LIKE '%$beforePeriode%'
+					GROUP BY tb_transaksi.id_transaksi
+					ORDER BY tb_transaksi.id_transaksi DESC
+					LIMIT 1";
+		$result	= mysqli_query($conn, $sql);
+		return mysqli_fetch_all($result, MYSQLI_ASSOC);
+		mysqli_free_result($result);
+		mysqli_close($conn);
+	}
+
 	function getPeriodeDetail($id_periode) {
         global $conn;
         $fixid 	= mysqli_real_escape_string($conn, $id_periode);

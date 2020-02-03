@@ -11,26 +11,28 @@
 					<div class="fifteen wide computer sixteen wide phone centered column">
 						<h2><i class="handshake outline icon"></i> FORM ANGGARAN</h2>
 						<div class="ui divider"></div>
+						<?php 
+						$getRencana = getRencana();
+						if ($getRencana) {
+							$rencanaAnggaran = $getRencana[0]['total_trans'];
+						}else{
+							$rencanaAnggaran = 0;
+						}
+
+						?>
 						<div class="ui grid">
 							<div class="sixteen wide computer sixteen wide phone centered column">
 								<form action="functions/function_anggaran.php" method="POST">
 					                <div class="ui stacked segment">
 					                	<input type="hidden" name="id_periode" value="<?=$periode?>">
+					                	<input type="hidden" name="rencana_anggaran" value="<?=$rencanaAnggaran?>">
+					                	<input type="hidden" name="realisasi_anggaran" value="0">
 					                    <div class="ui form">
 				                            <div class="field">
 				                                <label>Rencana Anggaran</label>
-				                                <div class="ui right labeled input">
-				                                	<label for="amount" class="ui label">Rp</label>
-													<input type="number" name="rencana_anggaran" id="rencana_anggaran" placeholder="3000.000">
-				                                </div>
+				                                <h4>Rp<?=$rencanaAnggaran?></h4>
 				                            </div>
-				                            <div class="field">
-				                                <label>Realisasi Anggaran</label>
-				                                <div class="ui right labeled input">
-				                                	<label for="amount" class="ui label">Rp</label>
-													<input type="number" name="realisasi_anggaran" id="realisasi_anggaran" placeholder="3000.000">
-				                                </div>
-				                            </div>
+				                            <hr>
 				                            <div class="field">
 				                                <label>Jenis Anggaran</label>
 				                                <select name="id_jenis_anggaran" id="" class="ui dropdown">
@@ -84,13 +86,13 @@
 	  })
 	;
 
-	function hitung_total() {
-		var saldo_awal = parseInt(document.getElementById('awal_saldo').value);
-		var saldo_berjalan = parseInt(document.getElementById('bulan_berjalan').value);
-		var total_saldo = saldo_awal + saldo_berjalan;
-		// console.log(total_saldo);
-		document.getElementById("saldo_akhir").value = total_saldo;
-	}
+	// function hitung_total() {
+	// 	var saldo_awal = parseInt(document.getElementById('awal_saldo').value);
+	// 	var saldo_berjalan = parseInt(document.getElementById('bulan_berjalan').value);
+	// 	var total_saldo = saldo_awal + saldo_berjalan;
+	// 	// console.log(total_saldo);
+	// 	document.getElementById("saldo_akhir").value = total_saldo;
+	// }
 
 	$(document).ready(function() {
 		

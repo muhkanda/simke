@@ -5,7 +5,7 @@
 
 	function getData() {
 		global $conn;
-		$sql 	= "SELECT tb_transaksi.id_transaksi AS id_transaksi, tb_transaksi.keterangan AS keterangan,
+		$sql 	= "SELECT tb_transaksi.id_transaksi AS id_transaksi, tb_transaksi.keterangan AS keterangan, tb_transaksi.periode AS periode,
 					IF((SUM(tb_transaksi_detail.debit) IS NULL),0, SUM(tb_transaksi_detail.debit)) AS debit,
 					IF((SUM(tb_transaksi_detail.kredit) IS NULL),0, SUM(tb_transaksi_detail.kredit)) AS kredit,
 					IF((SUM(tb_transaksi_detail.debit) - SUM(tb_transaksi_detail.kredit) IS NULL),0, SUM(tb_transaksi_detail.debit) - SUM(tb_transaksi_detail.kredit)) AS total_trans
@@ -28,17 +28,17 @@
         mysqli_close($conn);
     }
 
-	function addDataTrans($keterangan) {
+	function addDataTrans($keterangan, $periode) {
 		global $conn;
-		$sql 	= "INSERT INTO tb_transaksi (keterangan) VALUES ('$keterangan')";
+		$sql 	= "INSERT INTO tb_transaksi (keterangan, periode) VALUES ('$keterangan', '$periode')";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
 	}
 
-	function addDetTrans($id_transaksi, $debit, $kredit) {
+	function addDetTrans($id_transaksi, $debit, $kredit, $tgl_trans) {
 		global $conn;
-		$sql 	= "INSERT INTO tb_transaksi_detail (id_transaksi, debit, kredit) VALUES ('$id_transaksi', '$debit', '$kredit')";
+		$sql 	= "INSERT INTO tb_transaksi_detail (id_transaksi, tgl_trans, debit, kredit) VALUES ('$id_transaksi', '$tgl_trans', '$debit', '$kredit')";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
@@ -82,7 +82,8 @@
 
 	if (isset($_POST['add'])) {
 		$keterangan = mysqli_real_escape_string($conn, $_POST['keterangan']);
-		$add 		  = addDataTrans($keterangan);
+		$periode = date('Y-m-d');
+		$add 		  = addDataTrans($keterangan, $periode);
 		session_start();
 		unset ($_SESSION["message"]);
 		if ($add) {			
@@ -117,8 +118,9 @@
 	}elseif (isset($_POST['editTrans'])) {
 		$id			  	= mysqli_real_escape_string($conn, $_POST['id_transaksi']);
 		$debit 			= mysqli_real_escape_string($conn, $_POST['debit']);
-		$kredit 		= mysqli_real_escape_string($conn, $_POST['kredit']);	
-		$addTrans 		= addDetTrans($id, $debit, $kredit);
+		$kredit 		= mysqli_real_escape_string($conn, $_POST['kredit']);
+		$tgl_trans 		= date('Y-m-d');	
+		$addTrans 		= addDetTrans($id, $debit, $kredit, $tgl_trans);
 		session_start();
 		unset ($_SESSION["message"]);
 		if ($addTrans) {			

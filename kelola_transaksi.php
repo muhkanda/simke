@@ -25,6 +25,7 @@
 									    <thead>
 									        <tr>
 									            <th>No</th>
+									            <th>Periode</th>
 									            <th>Keterangan</th>
 									            <th>Debit</th>
 									            <th>Kredit</th>
@@ -34,9 +35,11 @@
 									    </thead>
 									    <tbody>
 									    <?php $all = getData(); $no = 1; ?>
-									    <?php foreach ($all as $data) { ?>
+									    <?php foreach ($all as $data) { 
+									    	$date = date_create($data['periode']);?>
 									    	<tr>
 									    	    <td><?= $no++ ?></td>
+									    	    <td><?= date_format($date, "Y/m") ?></td>
 									    	    <td><?= $data['keterangan'] ?></td>
 									    	    <td style="text-align: right;">Rp<?= number_format($data['debit'], 0 , '' , '.' ) ?></td>
 									    	    <td style="text-align: right;">Rp<?= number_format($data['kredit'], 0 , '' , '.' ) ?></td>

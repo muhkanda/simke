@@ -47,7 +47,7 @@
 
 												<th>Jenis Anggaran</th>
 												<th>Rencana Anggaran</th>
-												<th>Realisasi Anggaran</th>
+												<!-- <th>Realisasi Anggaran</th> -->
 												<th>Status</th>
 												<th>Action</th>
 											</tr>
@@ -65,14 +65,11 @@
 									    		<td><?= $no++ ?></td>
 									    	    <td><?= $dag['pos_anggaran'] ?></td>
 									    	    <td style="text-align: right;">Rp<?= number_format($dag['rencana_anggaran'], 0 , '' , '.' ) ?></td>
-									    	    <td style="text-align: right;">Rp<?= number_format($dag['realisasi_anggaran'], 0 , '' , '.' ) ?></td>
+									    	    <!-- <td style="text-align: right;">Rp<?= number_format($dag['realisasi_anggaran'], 0 , '' , '.' ) ?></td> -->
 									    	    <td><?= $dag['status'] ?></td>
 									    	    <td style="text-align: center;">
 									    	    	<div class="ui buttons">
 									    	    	  <a href="<?= 'edit_anggaran.php?id='.$dag['id_anggaran_data']; ?>" class="ui green button"><i class="pen icon"></i></a>
-									    	    	  <div class="or" data-text="/"></div>
-									    	    	  <a href="functions/function_anggaran.php?periode=<?php echo $dag['id_periode']; ?>&hapus=<?php echo $dag['id_anggaran_data']; ?>" class="ui red button"><i class="trash alternate icon"></i></a>
-									    	    	</div>
 									    	    </td>
 									    	</tr>
 									    	<?php } ?>
@@ -81,7 +78,7 @@
 											<tr>
 												<th colspan="2" style="text-align: right;"><strong>Total Anggaran</strong></th>
 												<th style="text-align: right;">Rp<?= number_format($rencana_anggaran, 0 , '' , '.' ) ?></th>
-												<th style="text-align: right;">Rp<?= number_format($realisasi_anggaran, 0 , '' , '.' ) ?></th>
+												<!-- <th style="text-align: right;">Rp<?= number_format($realisasi_anggaran, 0 , '' , '.' ) ?></th> -->
 												<th></th>
 												<th></th>
 											</tr>

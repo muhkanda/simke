@@ -86,7 +86,7 @@
 									<table id="example" class="ui celled table responsive nowrap unstackable" style="width:100%">
 									    <thead>
 									        <tr>
-									            <th width="10%">No</th>
+									            <th>Tanggal</th>
 									            <th>Debit</th>
 									            <th>Kredit</th>
 									            <th>(Debit - Kredit)</th>
@@ -102,7 +102,7 @@
 									    	$all_total = $all_total + $total_trans;
 									    ?>
 								    	<tr>
-								    	    <td><?= $no++ ?></td>
+								    	    <td><?= $det['tgl_trans'] ?></td>
 								    	    <td style="text-align: right;">Rp<?= number_format($det['debit'], 0 , '' , '.' ) ?></td>
 								    	    <td style="text-align: right;">Rp<?= number_format($det['kredit'], 0 , '' , '.' ) ?></td>
 								    	    <td style="text-align: right;">Rp<?= number_format($total_trans, 0 , '' , '.' ) ?></td>

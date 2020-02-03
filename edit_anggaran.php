@@ -20,7 +20,20 @@
 					                	<input type="hidden" name="id_anggaran_data" value="<?= $data['id_anggaran_data']?>">
 					                	<input type="hidden" name="id_periode" value="<?= $data['id_periode']?>">
 					                    <div class="ui form">
-				                            <div class="field">
+											<?php 
+												$getRencana = getRencana();
+												if ($getRencana) {
+													$rencanaAnggaran = $getRencana[0]['total_trans'];
+												}else{
+													$rencanaAnggaran = 0;
+												}
+											?>
+											<div class="field">
+				                                <label>Rencana Anggaran</label>
+				                                <h4>Rp<?=$rencanaAnggaran?></h4>
+				                            </div>
+				                            <hr>
+				                            <!-- <div class="field">
 				                                <label>Rencana Anggaran</label>
 				                                <div class="ui right labeled input">
 				                                	<label for="amount" class="ui label">Rp</label>
@@ -33,7 +46,7 @@
 				                                	<label for="amount" class="ui label">Rp</label>
 													<input type="number" name="realisasi_anggaran" id="realisasi_anggaran" value="<?= $data['realisasi_anggaran']  ?>">
 				                                </div>
-				                            </div>
+				                            </div> -->
 				                            <div class="field">
 				                                <label>Jenis Anggaran</label>
 				                                <select name="id_jenis_anggaran" id="" class="ui dropdown">
