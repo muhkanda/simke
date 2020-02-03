@@ -1,4 +1,5 @@
 <?php
+	require 'functions/function_pengguna.php';
 	include_once 'layout/header.php';
 	include_once 'layout/sidebar.php';
 ?>		
@@ -16,8 +17,13 @@
 					                    <div class="ui form">
 					                        <div class="two fields">
 					                            <div class="field">
-					                                <label>NAMA</label>
-					                                <input type="text" name="nama" placeholder="">
+					                                <label>PILIH PEGAWAI</label>
+						                            <select name="id_pegawai" id="" class="ui dropdown">
+						                            <?php $all = getPengguna();?>
+									    			<?php foreach ($all as $data) { ?>
+						                            	<option value="<?php echo $data['id_pegawai'] ?>"><?php echo $data['nama_lengkap'] ?></option>
+						                            <?php } ?>
+						                            </select>
 					                            </div>
 					                            <div class="field">
 					                                <label>ROLE</label>
@@ -29,7 +35,11 @@
 						                            </select>
 					                            </div>
 					                        </div>
-					                        <div class="two fields">
+					                        <div class="three fields">
+					                        	<div class="field">
+					                                <label>EMAIL</label>
+					                                <input type="text" name="email" placeholder="">
+					                            </div>
 					                            <div class="field">
 					                                <label>USERNAME</label>
 					                                <input type="text" name="username" placeholder="">

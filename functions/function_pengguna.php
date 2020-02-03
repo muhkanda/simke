@@ -5,16 +5,25 @@
 
 	function getData() {
 		global $conn;
-		$sql 	= "SELECT * FROM tb_pengguna";
+		$sql 	= "SELECT tb_pengguna.id_pegawai, username, password, role, email, nama_lengkap FROM tb_pengguna INNER JOIN tb_pegawai ON tb_pengguna.id_pegawai = tb_pegawai.id_pegawai";
 		$result	= mysqli_query($conn, $sql);
 		return mysqli_fetch_all($result, MYSQLI_ASSOC);
 		mysqli_free_result($result);
 		mysqli_close($conn);
 	}
 
-	function addData($nama, $username, $password, $role) {
+	function getPengguna() {
 		global $conn;
-		$sql 	= "INSERT INTO tb_pengguna (nama, username, password, role) VALUES ('$nama','$username','$password','$role')";
+		$sql 	= "SELECT * FROM tb_pegawai";
+		$result	= mysqli_query($conn, $sql);
+		return mysqli_fetch_all($result, MYSQLI_ASSOC);
+		mysqli_free_result($result);
+		mysqli_close($conn);
+	}
+
+	function addData($id, $username, $password, $role, $email) {
+		global $conn;
+		$sql 	= "INSERT INTO tb_pengguna (id_pegawai, username, password, role, email) VALUES ('$id','$username','$password','$role','$email')";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
@@ -29,9 +38,9 @@
 		mysqli_close($conn);
 	}
 
-	function editData($id, $nama, $username, $password, $role) {
+	function editData($id, $username, $password, $role, $email) {
 		global $conn;
-		$sql 	= "UPDATE tb_pengguna SET nama='$nama', username='$username', password='$password', role='$role' WHERE id_pegawai='$id'";
+		$sql 	= "UPDATE tb_pengguna SET username='$username', password='$password', role='$role', email='$email' WHERE id_pegawai='$id'";
 		$result	= mysqli_query($conn, $sql);
 		return ($result) ? true : false;
 		mysqli_close($conn);
@@ -46,11 +55,12 @@
 	}
 
 	if (isset($_POST['add'])) {
-		$nama		= mysqli_real_escape_string($conn, $_POST['nama']);
+		$id		= mysqli_real_escape_string($conn, $_POST['id_pegawai']);
 		$username	= mysqli_real_escape_string($conn, $_POST['username']);
 		$password	= mysqli_real_escape_string($conn, md5($_POST['password']));
 		$role 		= mysqli_real_escape_string($conn, $_POST['role']);
-		$add 		= addData($nama, $username, $password, $role);
+		$email 		= mysqli_real_escape_string($conn, $_POST['email']);
+		$add 		= addData($id, $username, $password, $role, $email);
 		session_start();
 		unset ($_SESSION["message"]);
 		if ($add) {			
@@ -60,12 +70,12 @@
 		}
 		header("location:../kelola_pengguna.php");
 	}elseif (isset($_POST['edit'])) {
-		$id			= mysqli_real_escape_string($conn, $_POST['id']);
-		$nama		= mysqli_real_escape_string($conn, $_POST['nama']);
+		$id			= mysqli_real_escape_string($conn, $_POST['id_pegawai']);
 		$username	= mysqli_real_escape_string($conn, $_POST['username']);
 		$password	= mysqli_real_escape_string($conn, md5($_POST['password']));
 		$role 		= mysqli_real_escape_string($conn, $_POST['role']);
-		$edit 		= editData($id ,$nama, $username, $password, $role);
+		$email 		= mysqli_real_escape_string($conn, $_POST['email']);
+		$edit 		= editData($id, $username, $password, $role, $email);
 		session_start();
 		unset ($_SESSION["message"]);
 		if ($edit) {			

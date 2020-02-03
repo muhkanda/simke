@@ -38,7 +38,7 @@
 									    <?php $role = ($data['role'] == 1) ? 'ADMIN' : (($data['role'] == 2) ? 'AKUNTAN' : (($data['role'] == 3) ? 'DIREKTUR' : 'MANAGER')) ?>
 									    	<tr>
 									    	    <td><?= $no++ ?></td>
-									    	    <td><?= $data['nama'] ?></td>
+									    	    <td><?= $data['nama_lengkap'] ?></td>
 									    	    <td><?= $data['username'] ?></td>
 									    	    <td><?= $role ?></td>
 									    	    <td style="text-align: center;">

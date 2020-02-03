@@ -22,8 +22,8 @@
 					                    	<?php foreach ($get as $data) { ?>
 					                        <div class="two fields">
 					                            <div class="field">
-					                                <label>NAMA</label>
-					                                <input type="text" name="nama" placeholder="" value="<?= $data['nama'] ?>">
+					                                <label>EMAIL</label>
+					                                <input type="text" name="email" placeholder="" value="<?= $data['email'] ?>">
 					                            </div>
 					                            <div class="field">
 					                                <label>ROLE</label>
@@ -47,7 +47,7 @@
 					                                <input type="password" name="password" placeholder="" value="" required="">
 					                            </div>
 					                        </div>
-					                        <input type="hidden" name="id" value="<?= $data['id_pegawai'] ?>"> 
+					                        <input type="hidden" name="id_pegawai" value="<?= $data['id_pegawai'] ?>"> 
 					                        <?php } ?>
 					                    </div>
 					                    <br>
