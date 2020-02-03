@@ -107,6 +107,48 @@
 								echo $menuTrans;
 								echo $menuAnggaran;
 							}
+
+							if ($role == 9) {
+								echo '<div class="ui accordion item" style="padding: unset !important;">
+										    <div class="title item" style="padding: 14px 16px;">
+										        <i class="dropdown icon"></i> Pegawai
+										    </div>
+										    <div class="content" style="padding: 0px 0px !important;">
+										        '.$menuPegawai.'
+										    </div>
+										</div>';
+								echo '<div class="ui accordion item" style="padding: unset !important;">
+										    <div class="title item" style="padding: 14px 16px;">
+										        <i class="dropdown icon"></i> Pegawai
+										    </div>
+										    <div class="content" style="padding: 0px 0px !important;">
+										        '.$menuGaji.'
+										    </div>
+										</div>';
+								echo '<div class="ui accordion item" style="padding: unset !important;">
+										    <div class="title item" style="padding: 14px 16px;">
+										        <i class="dropdown icon"></i> Divisi
+										    </div>
+										    <div class="content" style="padding: 0px 0px !important;">
+										        '.$menuPendapatan.'
+										    </div>
+										</div>';
+								echo $menuAnggaran;
+								echo $menuJenisAnggaran;
+								echo $menuAkun;
+								echo $menuTrans;
+								echo $menuJabatan;
+								echo '<div class="ui accordion item" style="padding: unset !important;">
+										    <div class="title item" style="padding: 14px 16px;">
+										        <i class="dropdown icon"></i> Divisi
+										    </div>
+										    <div class="content" style="padding: 0px 0px !important;">
+										        '.$menuDivisi.'
+										    </div>
+										</div>';
+								echo $menuArusKas;
+								echo $menuPengguna;
+							}
 							?>
 							
                             

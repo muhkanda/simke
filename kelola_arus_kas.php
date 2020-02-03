@@ -24,9 +24,7 @@
 												<input type="hidden" name="id_periode" value="">
 												<div class="field">
 													<label>Periode</label>
-													<div class="ui calendar" id="standard_calendar">
-					                                	<input type="text" name="periode" placeholder="YYYY-MM-DD">
-					                                </div>
+					                                <input type="text" name="periode" value="<?php echo date("Y-m-d"); ?>" placeholder="YYYY-MM-DD" readonly>
 												</div>
 												<div class="field">
 													<label>Keterangan</label>
