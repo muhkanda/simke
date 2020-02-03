@@ -43,9 +43,9 @@
 									    	    <td><?= $role ?></td>
 									    	    <td style="text-align: center;">
 									    	    	<div class="ui buttons">
-									    	    	  <a href="<?= 'edit_pengguna.php?id='.$data['id_user']; ?>" class="ui green button"><i class="pen icon"></i></a>
+									    	    	  <a href="<?= 'edit_pengguna.php?id='.$data['id_pegawai']; ?>" class="ui green button"><i class="pen icon"></i></a>
 									    	    	  <div class="or" data-text="/"></div>
-									    	    	  <a href="<?= 'functions/function_pengguna.php?hapus='.$data['id_user']; ?>" class="ui red button"><i class="trash alternate icon"></i></a>
+									    	    	  <a href="<?= 'functions/function_pengguna.php?hapus='.$data['id_pegawai']; ?>" class="ui red button"><i class="trash alternate icon"></i></a>
 									    	    	</div>
 									    	    </td>
 									    	</tr>

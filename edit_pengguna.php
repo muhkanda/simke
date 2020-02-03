@@ -47,7 +47,7 @@
 					                                <input type="password" name="password" placeholder="" value="" required="">
 					                            </div>
 					                        </div>
-					                        <input type="hidden" name="id" value="<?= $data['id_user'] ?>"> 
+					                        <input type="hidden" name="id" value="<?= $data['id_pegawai'] ?>"> 
 					                        <?php } ?>
 					                    </div>
 					                    <br>
