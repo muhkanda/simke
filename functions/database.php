@@ -1,8 +1,8 @@
 <?php
-	$host	= "remotemysql.com";
-	$uname	= "bSghyCT7Rh";
-	$pass	= "N4iw7pNeLr";
-	$db 	= "bSghyCT7Rh";
+	$host	= "ar-rozzaq.mekanikserver.com";
+	$uname	= "agrapana_dev";
+	$pass	= "ontherock";
+	$db 	= "agrapana_dev";
 	$conn 	= mysqli_connect($host, $uname, $pass, $db);
 	if (mysqli_connect_errno()) {
 		echo "Koneksi Database Gagal : ".mysqli_connect_errno();
